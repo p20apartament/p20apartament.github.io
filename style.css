@@ -58,8 +58,7 @@ body {
 }
 
 .main-header .logo {
-    height: 50px;
-}
+    height: 10vh
 
 .main-header .logo img {
     height: 100%;
@@ -156,12 +155,12 @@ body {
 /* Sekcja Hero */
 .hero-section {
     position: relative;
-    height: 70vh;
+    height: 90vh;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    background-image: url('p-20-hero.jpg');
+    background-image: url('images/p-20-hero.png');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
