@@ -58,7 +58,7 @@ body {
 }
 
 .main-header .logo {
-    height: 10vh;
+    height: 50px;
 }
 
 .main-header .logo img {
@@ -67,6 +67,7 @@ body {
     display: block;
 }
 
+/* Domyślnie ukrywamy h1 dla wersji desktopowej */
 .main-header .logo h1 {
     position: absolute;
     width: 1px;
@@ -155,12 +156,12 @@ body {
 /* Sekcja Hero */
 .hero-section {
     position: relative;
-    height: 90vh;
+    height: 70vh;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    background-image: url('images/p-20-hero.png');
+    background-image: url('p-20-hero.jpg');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -469,10 +470,12 @@ body {
         z-index: 1002;
     }
 
+    /* Ukryj logo obrazkowe na małych ekranach */
     .main-header .logo img {
         display: none;
     }
 
+    /* Pokaż i ostyluj h1 jako logo tekstowe na małych ekranach */
     .main-header .logo h1 {
         position: static;
         width: auto;
