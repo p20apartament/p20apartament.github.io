@@ -492,7 +492,7 @@ body {
     }
 
     /* ... reszta stylów w media query ... */
-
+}
     .main-nav {
         /* Przenieś i ostyluj jako pełnoekranowe, rozwijane menu */
         position: fixed;
