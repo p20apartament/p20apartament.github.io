@@ -488,20 +488,25 @@ body {
         font-size: 1.5em;
     }
 
-    .main-nav {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(62, 91, 109, 0.95);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transform: translateY(-100%);
-        transition: transform 0.4s ease-in-out;
-        z-index: 999;
-    }
+   .main-nav {
+    /* Używamy flexbox do centrowania */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) translateY(-100%); /* Ukrywamy nad ekranem */
+    width: 90%; /* Zmniejszamy szerokość, aby nie zajmowało całego ekranu */
+    max-width: 400px; /* Maksymalna szerokość, by na dużych ekranach było estetyczne */
+    height: auto; /* Wysokość dopasowuje się do treści */
+    background-color: rgba(62, 91, 109, 0.95);
+    padding: 30px 20px; /* Dodajemy padding dla lepszego wyglądu */
+    border-radius: 10px; /* Zaokrąglamy rogi */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3); /* Dodajemy subtelny cień */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.4s ease-in-out;
+    z-index: 999;
+}
 
     .main-nav.active {
         transform: translateY(0);
