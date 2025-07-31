@@ -1,20 +1,20 @@
 /* Podstawowy reset i zmienne kolorów */
 :root {
     /* Kolory z logo i bazowe */
-    --color-logo-blue: #6A8E9E;   /* Główny błękit z logo */
-    --color-logo-beige: #D0C3B7;  /* Beż/piaskowy z logo */
-    --color-dark-brown: #4A3C32;  /* Głęboki brąz/ciemny beż do tekstu/akcentów */
-    --color-light-beige: #F7F5F0; /* Bardzo jasny beż/biel, idealny na tło */
-    --color-medium-gray: #A0A0A0; /* Subtelna szarość */
+    --color-logo-blue: #6A8E9E;
+    --color-logo-beige: #D0C3B7;
+    --color-dark-brown: #4A3C32;
+    --color-light-beige: #F7F5F0;
+    --color-medium-gray: #A0A0A0;
 
     /* Kolory akcentów */
-    --color-accent-green: #7BBF7D; /* Świeża zieleń, np. dla przycisków lub wyróżnień */
-    --color-accent-dark-blue: #3E5B6D; /* Ciemniejszy odcień błękitu z logo, na nagłówki */
+    --color-accent-green: #7BBF7D;
+    --color-accent-dark-blue: #3E5B6D;
 
     /* Ogólne kolory tekstu */
     --color-text-dark: var(--color-dark-brown);
     --color-text-light: var(--color-light-beige);
-    --color-white: #ffffff; /* Czysta biel dla pewnych elementów */
+    --color-white: #ffffff;
 }
 
 * {
@@ -30,8 +30,8 @@ html {
 body {
     font-family: 'Montserrat', sans-serif;
     line-height: 1.6;
-    color: var(--color-text-dark); /* Główny kolor tekstu */
-    background-color: var(--color-light-beige); /* Główne tło strony */
+    color: var(--color-text-dark);
+    background-color: var(--color-light-beige);
 }
 
 .container {
@@ -42,8 +42,8 @@ body {
 
 /* Nagłówek (Header) */
 .main-header {
-    background-color: var(--color-logo-blue); /* Błękit z logo */
-    color: var(--color-light-beige); /* Tekst w kolorze beżu/bieli */
+    background-color: var(--color-logo-blue);
+    color: var(--color-light-beige);
     padding: 15px 0;
     position: sticky;
     top: 0;
@@ -58,7 +58,7 @@ body {
 }
 
 .main-header .logo {
-    height: 50vh;
+    height: 50px;
 }
 
 .main-header .logo img {
@@ -78,7 +78,6 @@ body {
     white-space: nowrap;
     border: 0;
 }
-
 
 .main-nav ul {
     list-style: none;
@@ -112,7 +111,6 @@ body {
 .section:nth-of-type(odd) {
     background-color: var(--color-light-beige);
 }
-
 
 .section h2 {
     font-family: 'Playfair Display', serif;
@@ -157,12 +155,12 @@ body {
 /* Sekcja Hero */
 .hero-section {
     position: relative;
-    height: 90vh;
+    height: 70vh;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    background-image: url('images/p-20-hero.jpg');
+    background-image: url('p-20-hero.jpg');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -206,11 +204,9 @@ body {
     text-shadow: 0px 0px 6px rgba(0, 0, 0, 0.8);
 }
 
-/* Usuwamy placeholder, bo tło jest w hero-section */
 .hero-image-placeholder {
     display: none;
 }
-
 
 /* Sekcja O Apartamencie */
 .about-section ul {
@@ -268,7 +264,6 @@ body {
     font-size: 0.8em;
     color: var(--color-text-dark);
 }
-
 
 /* Lokalizacja */
 .map-placeholder {
@@ -464,20 +459,22 @@ body {
 
 /* Responsywność */
 @media (max-width: 768px) {
-    /* ... inne style ... */
+    .main-header .container {
+        flex-direction: row;
+        justify-content: space-between;
+    }
     
     .main-header .logo {
-        height: auto; /* Zresetuj wysokość */
+        height: auto;
         z-index: 1002;
     }
 
     .main-header .logo img {
-        display: none; /* Ukryj obrazek logo na małych ekranach */
+        display: none;
     }
 
     .main-header .logo h1 {
-        /* Pokaż tekst h1, nadpisując jego ukrycie */
-        position: static; /* Przywróć normalne pozycjonowanie */
+        position: static;
         width: auto;
         height: auto;
         padding: 0;
@@ -486,15 +483,12 @@ body {
         clip: auto;
         white-space: normal;
         border: 0;
-        color: var(--color-logo-beige); /* Kolor tekstu, pasujący do logo */
-        font-family: 'Playfair Display', serif; /* Możesz użyć innej czcionki, jeśli chcesz */
-        font-size: 1.5em; /* Rozmiar czcionki na telefonach */
+        color: var(--color-logo-beige);
+        font-family: 'Playfair Display', serif;
+        font-size: 1.5em;
     }
 
-    /* ... reszta stylów w media query ... */
-}
     .main-nav {
-        /* Przenieś i ostyluj jako pełnoekranowe, rozwijane menu */
         position: fixed;
         top: 0;
         left: 0;
@@ -504,19 +498,19 @@ body {
         display: flex;
         align-items: center;
         justify-content: center;
-        transform: translateY(-100%); /* Ukryj menu domyślnie */
+        transform: translateY(-100%);
         transition: transform 0.4s ease-in-out;
         z-index: 999;
     }
 
     .main-nav.active {
-        transform: translateY(0); /* Pokaż menu po dodaniu klasy active */
+        transform: translateY(0);
     }
 
     .main-nav ul {
         flex-direction: column;
         text-align: center;
-        list-style: none; /* Upewnij się, że lista nie ma kropek */
+        list-style: none;
         margin-top: 0;
     }
 
@@ -529,7 +523,6 @@ body {
         color: var(--color-white);
     }
     
-    /* Pokaż przycisk hamburgera na małych ekranach */
     .menu-toggle {
         display: block;
         background: none;
@@ -549,7 +542,6 @@ body {
         transition: transform 0.3s ease, opacity 0.3s ease;
     }
 
-    /* Animacja krzyżyka z hamburgera */
     .menu-toggle.active span:nth-child(1) {
         transform: rotate(45deg) translate(5px, 5px);
     }
@@ -564,7 +556,6 @@ body {
         opacity: 0;
     }
 
-    /* Pozostałe zmiany responsywne */
     .hero-section h2 {
         font-size: 2.2em;
     }
@@ -598,5 +589,10 @@ body {
     .price-table-placeholder table {
         width: 100%;
         font-size: 0.9em;
+    }
+
+    .footer-nav ul {
+        flex-direction: column;
+        gap: 10px;
     }
 }
