@@ -58,17 +58,15 @@ body {
 }
 
 .main-header .logo {
-    /* Stylizacja dla logo obrazkowego */
-    height: 10vh; /* Dostosuj wysokość według potrzeb, np. na 60px lub 70px jeśli logo jest za małe */
+    height: 50vh;
 }
 
 .main-header .logo img {
     height: 100%;
     width: auto;
-    display: block; /* Usuwa zbędny margines pod obrazkiem */
+    display: block;
 }
 
-/* Jeśli chcesz zachować h1 dla dostępności, ale wizualnie używać logo obrazkowego */
 .main-header .logo h1 {
     position: absolute;
     width: 1px;
@@ -92,14 +90,14 @@ body {
 }
 
 .main-nav ul li a {
-    color: var(--color-light-beige); /* Tekst linków nawigacyjnych */
+    color: var(--color-light-beige);
     text-decoration: none;
     font-weight: 700;
     transition: color 0.3s ease;
 }
 
 .main-nav ul li a:hover {
-    color: var(--color-accent-green); /* Akcent zieleni na hover */
+    color: var(--color-accent-green);
 }
 
 /* Sekcje ogólne */
@@ -109,10 +107,10 @@ body {
 }
 
 .section:nth-of-type(even) {
-    background-color: var(--color-white); /* Czysta biel dla naprzemiennych sekcji */
+    background-color: var(--color-white);
 }
 .section:nth-of-type(odd) {
-    background-color: var(--color-light-beige); /* Jasny beż/biel dla pozostałych sekcji */
+    background-color: var(--color-light-beige);
 }
 
 
@@ -120,7 +118,7 @@ body {
     font-family: 'Playfair Display', serif;
     font-size: 2.5em;
     margin-bottom: 40px;
-    color: var(--color-accent-dark-blue); /* Ciemniejszy błękit na nagłówki */
+    color: var(--color-accent-dark-blue);
     position: relative;
     display: inline-block;
 }
@@ -133,43 +131,41 @@ body {
     transform: translateX(-50%);
     width: 60px;
     height: 3px;
-    background-color: var(--color-logo-beige); /* Linia w kolorze beżu */
+    background-color: var(--color-logo-beige);
 }
 
 /* Przyciski (CTA) */
 .btn {
     display: inline-block;
-    background-color: var(--color-accent-green); /* Przycisk w kolorze akcentu zieleni */
-    color: var(--color-white); /* Tekst na przycisku biały */
+    background-color: var(--color-accent-green);
+    color: var(--color-white);
     padding: 12px 25px;
     text-decoration: none;
     border-radius: 5px;
     font-weight: 700;
     transition: background-color 0.3s ease, transform 0.2s ease;
     margin-top: 20px;
-    border: none; /* Usuń domyślne obramowanie */
+    border: none;
 }
 
 .btn:hover {
-    background-color: var(--color-dark-brown); /* Brąz na hover */
+    background-color: var(--color-dark-brown);
     color: var(--color-light-beige);
     transform: translateY(-2px);
 }
 
-/* Sekcja Hero - Zaktualizowane style dla zdjęcia tła i czytelności tekstu */
+/* Sekcja Hero */
 .hero-section {
     position: relative;
-    height: 90vh; /* Wysokość sekcji */
+    height: 90vh;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
-
-    /* STYLE DLA TŁA ZDJĘCIA HERO */
-    background-image: url('images/p-20-hero.jpg'); /* Ścieżka do Twojego zdjęcia */
-    background-size: cover; /* Sprawia, że obrazek pokrywa całą sekcję */
-    background-position: center center; /* Wyśrodkowuje obrazek */
-    background-repeat: no-repeat; /* Zapobiega powtarzaniu się obrazka */
+    background-image: url('images/p-20-hero.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
 }
 
 /* Overlay przyciemniający zdjęcie tła */
@@ -180,41 +176,37 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.40); /* Ciemny, półprzezroczysty overlay (zwiększona ciemność) */
+    background-color: rgba(0, 0, 0, 0.45);
     z-index: 0;
 }
 
 .hero-section .hero-content {
     position: relative;
-    z-index: 1; /* Upewnia się, że tekst jest nad overlayem */
+    z-index: 1;
     text-align: center;
-    max-width: 80%; /* Ogranicza szerokość treści, by nie rozjeżdżała się na boki */
+    max-width: 80%;
 }
 
 .hero-section h2 {
     font-family: 'Playfair Display', serif;
-    font-size: 3.0em;
+    font-size: 3.5em;
     margin-bottom: 15px;
-    color: var(--color-light-beige); /* H2 na hero w jasnym beżu/bieli */
-    /* MOCNIEJSZY CIEŃ TEKSTU DLA H2 */
-    text-shadow: 0px 0px 8px rgba(0, 0, 0, 0.9); /* Rozmyty, ciemny cień */
+    color: var(--color-light-beige);
+    text-shadow: 0px 0px 8px rgba(0, 0, 0, 0.9);
 }
 .hero-section h2::after {
-    background-color: var(--color-accent-green); /* Zmień kolor linii pod H2 na hero */
-    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.7); /* Dodaj cień również do linii */
+    background-color: var(--color-accent-green);
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.7);
 }
-
 
 .hero-section p {
     font-size: 1.3em;
     margin-bottom: 30px;
-    color: var(--color-light-beige); /* Upewnij się, że paragraf też ma jasny kolor */
-    /* MOCNIEJSZY CIEŃ TEKSTU DLA PARAGRAFU */
-    text-shadow: 0px 0px 6px rgba(0, 0, 0, 0.8); /* Rozmyty, ciemny cień */
+    color: var(--color-light-beige);
+    text-shadow: 0px 0px 6px rgba(0, 0, 0, 0.8);
 }
 
-/* Usunięcie placelhodera img z hero-section w HTML sprawia, że ten styl nie jest już potrzebny.
-   Jeśli pozostawiasz <img> w HTML, po prostu nadpisz go display:none; */
+/* Usuwamy placeholder, bo tło jest w hero-section */
 .hero-image-placeholder {
     display: none;
 }
@@ -231,8 +223,8 @@ body {
 }
 
 .about-section ul li {
-    background-color: var(--color-logo-beige); /* Beżowe tło dla elementów listy */
-    color: var(--color-dark-brown); /* Ciemny brąz na tekst */
+    background-color: var(--color-logo-beige);
+    color: var(--color-dark-brown);
     padding: 10px 20px;
     border-radius: 5px;
     font-weight: 600;
@@ -250,28 +242,29 @@ body {
 .gallery-item-placeholder {
     width: 100%;
     height: 250px;
-    background-color: var(--color-light-beige); /* Jasny beż */
-    border: 2px dashed var(--color-logo-blue); /* Obramowanie w kolorze błękitu z logo */
+    background-color: var(--color-light-beige);
+    border: 2px dashed var(--color-logo-blue);
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column; /* Aby tekst i ew. zdjęcie były centrowane w pionie */
+    flex-direction: column;
     color: var(--color-logo-blue);
     font-weight: 600;
     font-size: 1.2em;
     text-align: center;
-    overflow: hidden; /* Aby zdjęcia nie wychodziły poza ramkę */
+    overflow: hidden;
 }
 
 .gallery-item-placeholder img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: cover; /* Aby zdjęcie wypełniło kontener, przycinając jeśli trzeba */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
     display: block;
+    border-radius: 5px;
 }
 
 .gallery-item-placeholder p {
-    margin-top: 10px; /* Odstęp od zdjęcia */
+    margin-top: 10px;
     font-size: 0.8em;
     color: var(--color-text-dark);
 }
@@ -282,7 +275,7 @@ body {
     width: 100%;
     height: 400px;
     background-color: var(--color-light-beige);
-    border: 2px dashed var(--color-dark-brown); /* Obramowanie w kolorze brązu */
+    border: 2px dashed var(--color-dark-brown);
     margin: 40px auto;
     display: flex;
     align-items: center;
@@ -290,7 +283,7 @@ body {
     color: var(--color-dark-brown);
     font-weight: 600;
     font-size: 1.2em;
-    overflow: hidden; /* Aby iframe mapy się nie "wylewał" */
+    overflow: hidden;
 }
 
 .map-placeholder iframe {
@@ -298,7 +291,6 @@ body {
     height: 100%;
     border: none;
 }
-
 
 .location-section ul {
     list-style: none;
@@ -310,7 +302,7 @@ body {
 }
 
 .location-section ul li {
-    background-color: var(--color-medium-gray); /* Szarość jako akcent */
+    background-color: var(--color-medium-gray);
     color: var(--color-white);
     padding: 10px 20px;
     border-radius: 5px;
@@ -323,19 +315,19 @@ body {
     width: 100%;
     min-height: 200px;
     background-color: var(--color-white);
-    border: 2px dashed var(--color-accent-green); /* Obramowanie w kolorze zieleni */
+    border: 2px dashed var(--color-accent-green);
     margin: 40px auto;
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column; /* Aby zawartość była w kolumnie */
+    flex-direction: column;
     color: var(--color-accent-green);
     font-weight: 600;
     font-size: 1.2em;
 }
 
 .price-table-placeholder table {
-    width: 80%; /* Szerokość tabeli w placeholderze */
+    width: 80%;
     border-collapse: collapse;
     margin-bottom: 20px;
     color: var(--color-text-dark);
@@ -356,20 +348,20 @@ body {
 
 /* Opinie */
 .testimonials-section {
-    background-color: var(--color-logo-blue); /* Tło sekcji opinie w błękicie z logo */
-    color: var(--color-light-beige); /* Tekst w jasnym beżu */
+    background-color: var(--color-logo-blue);
+    color: var(--color-light-beige);
 }
 
 .testimonials-section h2 {
-    color: var(--color-logo-beige); /* Nagłówek w beżu z logo */
+    color: var(--color-logo-beige);
 }
 
 .testimonials-section h2::after {
-    background-color: var(--color-accent-green); /* Linia pod H2 w zieleni */
+    background-color: var(--color-accent-green);
 }
 
 .testimonial-item {
-    background-color: rgba(255, 255, 255, 0.1); /* Lekko przezroczyste białe tło */
+    background-color: rgba(255, 255, 255, 0.1);
     padding: 30px;
     margin: 20px auto;
     border-radius: 10px;
@@ -385,7 +377,7 @@ body {
 .testimonial-item .author {
     font-weight: 700;
     text-align: right;
-    color: var(--color-logo-beige); /* Kolor autora w beżu */
+    color: var(--color-logo-beige);
 }
 
 /* Kontakt */
@@ -416,7 +408,7 @@ body {
 .contact-form input[type="email"],
 .contact-form textarea {
     padding: 12px;
-    border: 1px solid var(--color-logo-blue); /* Obramowanie pól w błękicie */
+    border: 1px solid var(--color-logo-blue);
     border-radius: 5px;
     font-size: 1em;
     width: 100%;
@@ -435,8 +427,8 @@ body {
 
 /* Stopka (Footer) */
 .main-footer {
-    background-color: var(--color-dark-brown); /* Stopka w ciemnym brązie */
-    color: var(--color-light-beige); /* Tekst w stopce w jasnym beżu */
+    background-color: var(--color-dark-brown);
+    color: var(--color-light-beige);
     padding: 30px 0;
     text-align: center;
     font-size: 0.9em;
@@ -462,66 +454,50 @@ body {
 }
 
 .footer-nav ul li a:hover {
-    color: var(--color-accent-green); /* Akcent zieleni na hover */
+    color: var(--color-accent-green);
 }
-
-/* Responsywność */
-/* Styling dla menu mobilnego */
 
 /* Ukryj przycisk hamburgera domyślnie na dużych ekranach */
 .menu-toggle {
     display: none;
 }
 
+/* Responsywność */
 @media (max-width: 768px) {
-    /* Pokaż przycisk hamburgera na małych ekranach */
-    .menu-toggle {
-        display: block;
-        background: none;
-        border: none;
-        cursor: pointer;
-        padding: 10px;
-        position: relative;
-        z-index: 1001; /* Upewnij się, że jest nad menu */
+    .main-header .container {
+        flex-direction: row; /* Zmień na wiersz, aby logo i hamburger były obok siebie */
+        justify-content: space-between;
+    }
+    
+    .main-header .logo {
+        z-index: 1002; /* Upewnij się, że logo jest nad menu mobilnym */
     }
 
-    .menu-toggle span {
-        display: block;
-        width: 25px;
-        height: 3px;
-        background-color: var(--color-light-beige); /* Kolor hamburgera */
-        margin: 5px 0;
-        transition: transform 0.3s ease, opacity 0.3s ease;
-    }
-
-    /* Styl dla menu nawigacyjnego na małych ekranach */
     .main-nav {
+        /* Przenieś i ostyluj jako pełnoekranowe, rozwijane menu */
         position: fixed;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: rgba(62, 91, 109, 0.95); /* Kolor tła menu z przezroczystością */
+        background-color: rgba(62, 91, 109, 0.95);
         display: flex;
         align-items: center;
         justify-content: center;
-        transform: translateY(-100%); /* Domyślnie ukryj menu nad ekranem */
+        transform: translateY(-100%); /* Ukryj menu domyślnie */
         transition: transform 0.4s ease-in-out;
         z-index: 999;
     }
-    
-    /* Ukryj logo na małych ekranach po otwarciu menu, jeśli chcesz */
-    .main-header.menu-open .logo {
-        opacity: 0;
-    }
 
     .main-nav.active {
-        transform: translateY(0); /* Pokaż menu */
+        transform: translateY(0); /* Pokaż menu po dodaniu klasy active */
     }
 
     .main-nav ul {
         flex-direction: column;
         text-align: center;
+        list-style: none; /* Upewnij się, że lista nie ma kropek */
+        margin-top: 0;
     }
 
     .main-nav ul li {
@@ -533,6 +509,26 @@ body {
         color: var(--color-white);
     }
     
+    /* Pokaż przycisk hamburgera na małych ekranach */
+    .menu-toggle {
+        display: block;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 10px;
+        position: relative;
+        z-index: 1001;
+    }
+
+    .menu-toggle span {
+        display: block;
+        width: 25px;
+        height: 3px;
+        background-color: var(--color-light-beige);
+        margin: 5px 0;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
     /* Animacja krzyżyka z hamburgera */
     .menu-toggle.active span:nth-child(1) {
         transform: rotate(45deg) translate(5px, 5px);
@@ -543,23 +539,14 @@ body {
     .menu-toggle.active span:nth-child(3) {
         transform: rotate(-45deg) translate(5px, -5px);
     }
-}
-@media (max-width: 768px) {
-    .main-header .container {
-        flex-direction: column;
+
+    .main-header.menu-open .logo {
+        opacity: 0;
     }
 
-    .main-nav ul {
-        flex-direction: column;
-        margin-top: 15px;
-    }
-
-    .main-nav ul li {
-        margin: 5px 0;
-    }
-
+    /* Pozostałe zmiany responsywne */
     .hero-section h2 {
-        font-size: 2.2em; /* Zmniejsz rozmiar czcionki na mniejszych ekranach */
+        font-size: 2.2em;
     }
 
     .hero-section p {
@@ -581,7 +568,7 @@ body {
     }
 
     .gallery-grid {
-        grid-template-columns: 1fr; /* Jedna kolumna na małych ekranach */
+        grid-template-columns: 1fr;
     }
 
     .testimonial-item {
@@ -589,17 +576,7 @@ body {
     }
 
     .price-table-placeholder table {
-        width: 100%; /* Tabelka na 100% szerokości na małych ekranach */
+        width: 100%;
         font-size: 0.9em;
     }
-}
-
-/* Dodatkowe poprawki dla galerii */
-/* Właściwe stylowanie dla obrazków w galerii, jeśli wstawiasz je bezpośrednio */
-.gallery-item-placeholder img {
-    width: 100%;
-    height: 100%; /* Spraw, by obrazek wypełniał placeholder */
-    object-fit: cover; /* Upewnij się, że obrazek pokrywa całą powierzchnię, przycinając jeśli trzeba */
-    display: block;
-    border-radius: 5px; /* Delikatne zaokrąglenie rogów obrazka */
 }
