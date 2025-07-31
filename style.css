@@ -508,9 +508,9 @@ body {
     z-index: 999;
 }
 
-    .main-nav.active {
-        transform: translateY(0);
-    }
+  .main-nav.active {
+    transform: translate(-50%, -50%) translateY(0); /* Pokaż menu po dodaniu klasy active */
+}
 
     .main-nav ul {
         flex-direction: column;
