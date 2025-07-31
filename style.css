@@ -537,6 +537,7 @@ body {
         padding: 10px;
         position: relative;
         z-index: 1001;
+        align: center;
     }
 
     .menu-toggle span {
