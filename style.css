@@ -1,0 +1,527 @@
+/* Podstawowy reset i zmienne kolorów */
+:root {
+    /* Kolory z logo i bazowe */
+    --color-logo-blue: #6A8E9E;   /* Główny błękit z logo */
+    --color-logo-beige: #D0C3B7;  /* Beż/piaskowy z logo */
+    --color-dark-brown: #4A3C32;  /* Głęboki brąz/ciemny beż do tekstu/akcentów */
+    --color-light-beige: #F7F5F0; /* Bardzo jasny beż/biel, idealny na tło */
+    --color-medium-gray: #A0A0A0; /* Subtelna szarość */
+
+    /* Kolory akcentów */
+    --color-accent-green: #7BBF7D; /* Świeża zieleń, np. dla przycisków lub wyróżnień */
+    --color-accent-dark-blue: #3E5B6D; /* Ciemniejszy odcień błękitu z logo, na nagłówki */
+
+    /* Ogólne kolory tekstu */
+    --color-text-dark: var(--color-dark-brown);
+    --color-text-light: var(--color-light-beige);
+    --color-white: #ffffff; /* Czysta biel dla pewnych elementów */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.6;
+    color: var(--color-text-dark); /* Główny kolor tekstu */
+    background-color: var(--color-light-beige); /* Główne tło strony */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Nagłówek (Header) */
+.main-header {
+    background-color: var(--color-logo-blue); /* Błękit z logo */
+    color: var(--color-light-beige); /* Tekst w kolorze beżu/bieli */
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.main-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.main-header .logo {
+    /* Stylizacja dla logo obrazkowego */
+    height: 10vh; /* Dostosuj wysokość według potrzeb, np. na 60px lub 70px jeśli logo jest za małe */
+}
+
+.main-header .logo img {
+    height: 100%;
+    width: auto;
+    display: block; /* Usuwa zbędny margines pod obrazkiem */
+}
+
+/* Jeśli chcesz zachować h1 dla dostępności, ale wizualnie używać logo obrazkowego */
+.main-header .logo h1 {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+}
+
+.main-nav ul li {
+    margin-left: 25px;
+}
+
+.main-nav ul li a {
+    color: var(--color-light-beige); /* Tekst linków nawigacyjnych */
+    text-decoration: none;
+    font-weight: 700;
+    transition: color 0.3s ease;
+}
+
+.main-nav ul li a:hover {
+    color: var(--color-accent-green); /* Akcent zieleni na hover */
+}
+
+/* Sekcje ogólne */
+.section {
+    padding: 80px 0;
+    text-align: center;
+}
+
+.section:nth-of-type(even) {
+    background-color: var(--color-white); /* Czysta biel dla naprzemiennych sekcji */
+}
+.section:nth-of-type(odd) {
+    background-color: var(--color-light-beige); /* Jasny beż/biel dla pozostałych sekcji */
+}
+
+
+.section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5em;
+    margin-bottom: 40px;
+    color: var(--color-accent-dark-blue); /* Ciemniejszy błękit na nagłówki */
+    position: relative;
+    display: inline-block;
+}
+
+.section h2::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -10px;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background-color: var(--color-logo-beige); /* Linia w kolorze beżu */
+}
+
+/* Przyciski (CTA) */
+.btn {
+    display: inline-block;
+    background-color: var(--color-accent-green); /* Przycisk w kolorze akcentu zieleni */
+    color: var(--color-white); /* Tekst na przycisku biały */
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 700;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 20px;
+    border: none; /* Usuń domyślne obramowanie */
+}
+
+.btn:hover {
+    background-color: var(--color-dark-brown); /* Brąz na hover */
+    color: var(--color-light-beige);
+    transform: translateY(-2px);
+}
+
+/* Sekcja Hero - Zaktualizowane style dla zdjęcia tła i czytelności tekstu */
+.hero-section {
+    position: relative;
+    height: 90vh; /* Wysokość sekcji */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+
+    /* STYLE DLA TŁA ZDJĘCIA HERO */
+    background-image: url('images/p-20-hero.jpg'); /* Ścieżka do Twojego zdjęcia */
+    background-size: cover; /* Sprawia, że obrazek pokrywa całą sekcję */
+    background-position: center center; /* Wyśrodkowuje obrazek */
+    background-repeat: no-repeat; /* Zapobiega powtarzaniu się obrazka */
+}
+
+/* Overlay przyciemniający zdjęcie tła */
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.40); /* Ciemny, półprzezroczysty overlay (zwiększona ciemność) */
+    z-index: 0;
+}
+
+.hero-section .hero-content {
+    position: relative;
+    z-index: 1; /* Upewnia się, że tekst jest nad overlayem */
+    text-align: center;
+    max-width: 80%; /* Ogranicza szerokość treści, by nie rozjeżdżała się na boki */
+}
+
+.hero-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.0em;
+    margin-bottom: 15px;
+    color: var(--color-light-beige); /* H2 na hero w jasnym beżu/bieli */
+    /* MOCNIEJSZY CIEŃ TEKSTU DLA H2 */
+    text-shadow: 0px 0px 8px rgba(0, 0, 0, 0.9); /* Rozmyty, ciemny cień */
+}
+.hero-section h2::after {
+    background-color: var(--color-accent-green); /* Zmień kolor linii pod H2 na hero */
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.7); /* Dodaj cień również do linii */
+}
+
+
+.hero-section p {
+    font-size: 1.3em;
+    margin-bottom: 30px;
+    color: var(--color-light-beige); /* Upewnij się, że paragraf też ma jasny kolor */
+    /* MOCNIEJSZY CIEŃ TEKSTU DLA PARAGRAFU */
+    text-shadow: 0px 0px 6px rgba(0, 0, 0, 0.8); /* Rozmyty, ciemny cień */
+}
+
+/* Usunięcie placelhodera img z hero-section w HTML sprawia, że ten styl nie jest już potrzebny.
+   Jeśli pozostawiasz <img> w HTML, po prostu nadpisz go display:none; */
+.hero-image-placeholder {
+    display: none;
+}
+
+
+/* Sekcja O Apartamencie */
+.about-section ul {
+    list-style: none;
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.about-section ul li {
+    background-color: var(--color-logo-beige); /* Beżowe tło dla elementów listy */
+    color: var(--color-dark-brown); /* Ciemny brąz na tekst */
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: 600;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Galeria zdjęć */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.gallery-item-placeholder {
+    width: 100%;
+    height: 250px;
+    background-color: var(--color-light-beige); /* Jasny beż */
+    border: 2px dashed var(--color-logo-blue); /* Obramowanie w kolorze błękitu z logo */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column; /* Aby tekst i ew. zdjęcie były centrowane w pionie */
+    color: var(--color-logo-blue);
+    font-weight: 600;
+    font-size: 1.2em;
+    text-align: center;
+    overflow: hidden; /* Aby zdjęcia nie wychodziły poza ramkę */
+}
+
+.gallery-item-placeholder img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover; /* Aby zdjęcie wypełniło kontener, przycinając jeśli trzeba */
+    display: block;
+}
+
+.gallery-item-placeholder p {
+    margin-top: 10px; /* Odstęp od zdjęcia */
+    font-size: 0.8em;
+    color: var(--color-text-dark);
+}
+
+
+/* Lokalizacja */
+.map-placeholder {
+    width: 100%;
+    height: 400px;
+    background-color: var(--color-light-beige);
+    border: 2px dashed var(--color-dark-brown); /* Obramowanie w kolorze brązu */
+    margin: 40px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-dark-brown);
+    font-weight: 600;
+    font-size: 1.2em;
+    overflow: hidden; /* Aby iframe mapy się nie "wylewał" */
+}
+
+.map-placeholder iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+
+.location-section ul {
+    list-style: none;
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.location-section ul li {
+    background-color: var(--color-medium-gray); /* Szarość jako akcent */
+    color: var(--color-white);
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: 600;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Cennik */
+.price-table-placeholder {
+    width: 100%;
+    min-height: 200px;
+    background-color: var(--color-white);
+    border: 2px dashed var(--color-accent-green); /* Obramowanie w kolorze zieleni */
+    margin: 40px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column; /* Aby zawartość była w kolumnie */
+    color: var(--color-accent-green);
+    font-weight: 600;
+    font-size: 1.2em;
+}
+
+.price-table-placeholder table {
+    width: 80%; /* Szerokość tabeli w placeholderze */
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    color: var(--color-text-dark);
+}
+
+.price-table-placeholder th,
+.price-table-placeholder td {
+    border: 1px solid var(--color-logo-beige);
+    padding: 10px;
+    text-align: left;
+}
+
+.price-table-placeholder th {
+    background-color: var(--color-logo-blue);
+    color: var(--color-light-beige);
+    font-weight: 700;
+}
+
+/* Opinie */
+.testimonials-section {
+    background-color: var(--color-logo-blue); /* Tło sekcji opinie w błękicie z logo */
+    color: var(--color-light-beige); /* Tekst w jasnym beżu */
+}
+
+.testimonials-section h2 {
+    color: var(--color-logo-beige); /* Nagłówek w beżu z logo */
+}
+
+.testimonials-section h2::after {
+    background-color: var(--color-accent-green); /* Linia pod H2 w zieleni */
+}
+
+.testimonial-item {
+    background-color: rgba(255, 255, 255, 0.1); /* Lekko przezroczyste białe tło */
+    padding: 30px;
+    margin: 20px auto;
+    border-radius: 10px;
+    max-width: 700px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.testimonial-item p {
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+.testimonial-item .author {
+    font-weight: 700;
+    text-align: right;
+    color: var(--color-logo-beige); /* Kolor autora w beżu */
+}
+
+/* Kontakt */
+.contact-info p {
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+.contact-info a {
+    color: var(--color-text-dark);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-info a:hover {
+    color: var(--color-accent-green);
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    margin: 40px auto 0;
+    gap: 15px;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    padding: 12px;
+    border: 1px solid var(--color-logo-blue); /* Obramowanie pól w błękicie */
+    border-radius: 5px;
+    font-size: 1em;
+    width: 100%;
+    background-color: var(--color-white);
+    color: var(--color-text-dark);
+}
+
+.contact-form textarea {
+    resize: vertical;
+}
+
+.contact-form button.btn {
+    width: auto;
+    align-self: flex-end;
+}
+
+/* Stopka (Footer) */
+.main-footer {
+    background-color: var(--color-dark-brown); /* Stopka w ciemnym brązie */
+    color: var(--color-light-beige); /* Tekst w stopce w jasnym beżu */
+    padding: 30px 0;
+    text-align: center;
+    font-size: 0.9em;
+}
+
+.main-footer .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.footer-nav ul li a {
+    color: var(--color-light-beige);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-nav ul li a:hover {
+    color: var(--color-accent-green); /* Akcent zieleni na hover */
+}
+
+/* Responsywność */
+@media (max-width: 768px) {
+    .main-header .container {
+        flex-direction: column;
+    }
+
+    .main-nav ul {
+        flex-direction: column;
+        margin-top: 15px;
+    }
+
+    .main-nav ul li {
+        margin: 5px 0;
+    }
+
+    .hero-section h2 {
+        font-size: 2.2em; /* Zmniejsz rozmiar czcionki na mniejszych ekranach */
+    }
+
+    .hero-section p {
+        font-size: 1em;
+    }
+
+    .section {
+        padding: 60px 0;
+    }
+
+    .section h2 {
+        font-size: 2em;
+    }
+
+    .about-section ul,
+    .location-section ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr; /* Jedna kolumna na małych ekranach */
+    }
+
+    .testimonial-item {
+        padding: 20px;
+    }
+
+    .price-table-placeholder table {
+        width: 100%; /* Tabelka na 100% szerokości na małych ekranach */
+        font-size: 0.9em;
+    }
+}
+
+/* Dodatkowe poprawki dla galerii */
+/* Właściwe stylowanie dla obrazków w galerii, jeśli wstawiasz je bezpośrednio */
+.gallery-item-placeholder img {
+    width: 100%;
+    height: 100%; /* Spraw, by obrazek wypełniał placeholder */
+    object-fit: cover; /* Upewnij się, że obrazek pokrywa całą powierzchnię, przycinając jeśli trzeba */
+    display: block;
+    border-radius: 5px; /* Delikatne zaokrąglenie rogów obrazka */
+}
