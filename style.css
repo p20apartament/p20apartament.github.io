@@ -464,14 +464,34 @@ body {
 
 /* Responsywność */
 @media (max-width: 768px) {
-    .main-header .container {
-        flex-direction: row; /* Zmień na wiersz, aby logo i hamburger były obok siebie */
-        justify-content: space-between;
-    }
+    /* ... inne style ... */
     
     .main-header .logo {
-        z-index: 1002; /* Upewnij się, że logo jest nad menu mobilnym */
+        height: auto; /* Zresetuj wysokość */
+        z-index: 1002;
     }
+
+    .main-header .logo img {
+        display: none; /* Ukryj obrazek logo na małych ekranach */
+    }
+
+    .main-header .logo h1 {
+        /* Pokaż tekst h1, nadpisując jego ukrycie */
+        position: static; /* Przywróć normalne pozycjonowanie */
+        width: auto;
+        height: auto;
+        padding: 0;
+        margin: 0;
+        overflow: visible;
+        clip: auto;
+        white-space: normal;
+        border: 0;
+        color: var(--color-logo-beige); /* Kolor tekstu, pasujący do logo */
+        font-family: 'Playfair Display', serif; /* Możesz użyć innej czcionki, jeśli chcesz */
+        font-size: 1.5em; /* Rozmiar czcionki na telefonach */
+    }
+
+    /* ... reszta stylów w media query ... */
 
     .main-nav {
         /* Przenieś i ostyluj jako pełnoekranowe, rozwijane menu */
