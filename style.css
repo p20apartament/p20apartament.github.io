@@ -60,23 +60,12 @@ body {
 .main-header .logo {
     height: 10vh;
 }
-
-.main-header .logo img {
-    height: 100%;
-    width: auto;
+.logo-desktop {
     display: block;
+    height: 100%;
 }
-
-.main-header .logo h1 {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
+.logo-mobile {
+    display: none;
 }
 
 .main-nav ul {
@@ -470,28 +459,26 @@ body {
     }
     
     .main-header .logo {
-        height: auto;
-        z-index: 1002;
-    }
-
-    .main-header .logo img {
-        display: none;
-    }
-
-    .main-header .logo h1 {
-        position: static;
-        width: auto;
-        height: auto;
-        padding: 0;
-        margin: 0;
-        overflow: visible;
-        clip: auto;
-        white-space: normal;
-        border: 0;
-        color: var(--color-logo-beige);
-        font-family: 'Playfair Display', serif;
-        font-size: 1.5em;
-    }
+    height: auto;
+}
+.logo-desktop {
+    display: none;
+}
+.logo-mobile {
+    position: static;
+    width: auto;
+    height: auto;
+    padding: 0;
+    margin: 0;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+    border: 0;
+    display: block; /* Pokaż nagłówek na małych ekranach */
+    color: var(--color-logo-beige);
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5em;
+}
 
  .main-nav {
         position: fixed;
