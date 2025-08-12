@@ -344,6 +344,14 @@ body {
     font-weight: 700;
 }
 
+.pricing-section p {
+    text-align: justify;
+}
+
+.pricing-section li {
+    text-align: justify;
+}
+
 /* Opinie */
 .testimonials-section {
     background-color: var(--color-logo-blue);
