@@ -602,3 +602,28 @@ body {
         gap: 10px;
     }
 }
+.floating-button-container {
+    position: fixed; /* Pozycjonowanie, które sprawia, że przycisk "pływa" */
+    bottom: 20px; /* Odległość od dolnej krawędzi */
+    right: 20px; /* Odległość od prawej krawędzi */
+    z-index: 1000; /* Zapewnia, że przycisk będzie na wierzchu */
+}
+
+.floating-button-container a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%; /* Tworzy okrągły kształt */
+    background-color: #3b5998; /* Kolor tła Facebooka */
+    color: #fff; /* Kolor ikony */
+    font-size: 30px; /* Rozmiar ikony */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Delikatny cień dla efektu "pływania" */
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.floating-button-container a:hover {
+    transform: scale(1.1); /* Delikatne powiększenie po najechaniu */
+    background-color: #2b457c; /* Ciemniejszy odcień na hover */
+}
