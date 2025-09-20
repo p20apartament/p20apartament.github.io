@@ -1,33 +1,16 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // ----------------------------------------
-    // Płynne przewijanie do sekcji
-    // ----------------------------------------
+    // Płynne przewijanie
     const navLinks = document.querySelectorAll('.main-nav a');
-    const menuToggle = document.querySelector('.menu-toggle');
-    const mainNav = document.querySelector('.main-nav');
-    const mainHeader = document.querySelector('.main-header');
-
-    if (navLinks) {
-        for (const link of navLinks) {
-            link.addEventListener('click', smoothScroll);
-        }
+    for (const link of navLinks) {
+        link.addEventListener('click', smoothScroll);
     }
 
     function smoothScroll(event) {
         event.preventDefault();
-        const targetId = this.getAttribute('href');
+        const targetId = event.currentTarget.getAttribute('href');
         const targetSection = document.querySelector(targetId);
-
-        // Zamknij menu po kliknięciu w link na urządzeniach mobilnych
-        if (window.innerWidth <= 768) {
-            mainNav.classList.remove('active');
-            menuToggle.classList.remove('active');
-            mainHeader.classList.remove('menu-open');
-        }
-
         if (targetSection) {
-            // Upewnij się, że nagłówek istnieje, aby nie wystąpił błąd
-            const headerHeight = mainHeader ? mainHeader.offsetHeight : 0;
+            const headerHeight = document.querySelector('.main-header').offsetHeight;
             window.scrollTo({
                 top: targetSection.offsetTop - headerHeight,
                 behavior: 'smooth'
@@ -35,14 +18,51 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // ----------------------------------------
     // Obsługa menu mobilnego
-    // ----------------------------------------
-    if (menuToggle && mainNav) {
-        menuToggle.addEventListener('click', () => {
-            mainNav.classList.toggle('active');
-            menuToggle.classList.toggle('active');
-            mainHeader.classList.toggle('menu-open');
+    const menuToggle = document.querySelector('.menu-toggle');
+    const mainNav = document.querySelector('.main-nav');
+    const header = document.querySelector('.main-header');
+
+    menuToggle.addEventListener('click', () => {
+        mainNav.classList.toggle('active');
+        menuToggle.classList.toggle('active');
+        header.classList.toggle('menu-open');
+        menuToggle.setAttribute('aria-expanded', mainNav.classList.contains('active'));
+    });
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            mainNav.classList.remove('active');
+            menuToggle.classList.remove('active');
+            header.classList.remove('menu-open');
+            menuToggle.setAttribute('aria-expanded', 'false');
         });
-    }
+    });
+
+    // Obsługa lightboxa
+    const galleryImages = document.querySelectorAll('.gallery-item-placeholder img');
+    const lightbox = document.querySelector('#lightbox');
+    const lightboxImage = document.querySelector('.lightbox-image');
+    const lightboxClose = document.querySelector('.lightbox-close');
+
+    galleryImages.forEach(image => {
+        image.addEventListener('click', () => {
+            lightboxImage.src = image.src;
+            lightboxImage.alt = image.alt;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Wyłącza przewijanie strony
+        });
+    });
+
+    lightboxClose.addEventListener('click', () => {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = 'auto'; // Przywraca przewijanie strony
+    });
+
+    lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = 'auto'; // Przywraca przewijanie strony
+        }
+    });
 });
