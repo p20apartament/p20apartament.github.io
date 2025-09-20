@@ -9,6 +9,7 @@
     white-space: nowrap;
     border: 0;
 }
+
 /* Podstawowy reset i zmienne kolorów */
 :root {
     /* Kolory z logo i bazowe */
@@ -229,7 +230,6 @@ body {
     text-align: justify;
 }
 
-
 /* Galeria zdjęć */
 .gallery-grid {
     display: grid;
@@ -239,19 +239,11 @@ body {
 }
 
 .gallery-item-placeholder {
-    width: 100%;
-    height: 250px;
-    background-color: var(--color-light-beige);
-    border: 2px dashed var(--color-logo-blue);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    color: var(--color-logo-blue);
-    font-weight: 600;
-    font-size: 1.2em;
-    text-align: center;
+    aspect-ratio: 4 / 3;
     overflow: hidden;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 .gallery-item-placeholder img {
@@ -260,12 +252,59 @@ body {
     object-fit: cover;
     display: block;
     border-radius: 5px;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item-placeholder img:hover {
+    transform: scale(1.05);
 }
 
 .gallery-item-placeholder p {
     margin-top: 10px;
     font-size: 0.8em;
     color: var(--color-text-dark);
+    text-align: center;
+}
+
+/* Lightbox */
+.lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.lightbox.active {
+    display: flex;
+}
+
+.lightbox-image {
+    max-width: 90%;
+    max-height: 90vh;
+    object-fit: contain;
+    border-radius: 5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 2.5em;
+    color: var(--color-white);
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.lightbox-close:hover {
+    color: var(--color-accent-green);
 }
 
 /* Lokalizacja */
@@ -360,7 +399,7 @@ body {
 }
 
 .testimonials-section h2 {
-    color: var(--color-logo-beige);
+    
 }
 
 .testimonials-section h2::after {
@@ -477,40 +516,38 @@ body {
     }
     
     .main-header .logo {
-    height: 40px; /* Ustawia małe logo na urządzeniach mobilnych */
-    z-index: 1002;
-}
+        height: 40px;
+        z-index: 1002;
+    }
 
-.main-header .logo img {
-    height: 100%;
-    width: auto;
-    display: block;
-}
+    .main-header .logo img {
+        height: 100%;
+        width: auto;
+        display: block;
+    }
 
- .main-nav {
+    .main-nav {
         position: fixed;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: rgba(62, 91, 109, 0.95); /* Kolor tła menu z przezroczystością */
+        background-color: rgba(62, 91, 109, 0.95);
         display: flex;
         align-items: center;
         justify-content: center;
-        transform: translateY(-100%); /* Domyślnie ukryj menu nad ekranem */
+        transform: translateY(-100%);
         transition: transform 0.4s ease-in-out;
         z-index: 999;
     }
-    
-    /* Ukryj logo na małych ekranach po otwarciu menu, jeśli chcesz */
+
     .main-header.menu-open .logo {
         opacity: 0;
     }
 
     .main-nav.active {
-        transform: translateY(0); /* Pokaż menu */
+        transform: translateY(0);
     }
-
 
     .main-nav ul {
         flex-direction: column;
@@ -601,12 +638,18 @@ body {
         flex-direction: column;
         gap: 10px;
     }
+
+    .lightbox-image {
+        max-width: 95%;
+        max-height: 80vh;
+    }
 }
+
 .floating-button-container {
-    position: fixed; /* Pozycjonowanie, które sprawia, że przycisk "pływa" */
-    bottom: 20px; /* Odległość od dolnej krawędzi */
-    right: 20px; /* Odległość od prawej krawędzi */
-    z-index: 1000; /* Zapewnia, że przycisk będzie na wierzchu */
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
 }
 
 .floating-button-container a {
@@ -615,15 +658,15 @@ body {
     align-items: center;
     width: 60px;
     height: 60px;
-    border-radius: 50%; /* Tworzy okrągły kształt */
-    background-color: #3b5998; /* Kolor tła Facebooka */
-    color: #fff; /* Kolor ikony */
-    font-size: 30px; /* Rozmiar ikony */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Delikatny cień dla efektu "pływania" */
+    border-radius: 50%;
+    background-color: #3b5998;
+    color: #fff;
+    font-size: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
 .floating-button-container a:hover {
-    transform: scale(1.1); /* Delikatne powiększenie po najechaniu */
-    background-color: #2b457c; /* Ciemniejszy odcień na hover */
+    transform: scale(1.1);
+    background-color: #2b457c;
 }
