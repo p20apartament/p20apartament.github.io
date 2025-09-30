@@ -855,3 +855,71 @@ body {
     transform: scale(1.1);
     background-color: #2b457c;
 }
+
+/* Styling dla banera cookies */
+.cookie-banner {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    background-color: var(--color-white);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    z-index: 3000;
+    padding: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.cookie-banner.active {
+    display: block;
+}
+
+.cookie-banner-content {
+    text-align: center;
+}
+
+.cookie-banner-content p {
+    font-size: 1em;
+    color: var(--color-text-dark);
+    margin-bottom: 20px;
+}
+
+.cookie-banner-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.cookie-banner-buttons .btn {
+    padding: 10px 20px;
+    font-size: 0.9em;
+}
+
+.cookie-banner-buttons .cookie-reject {
+    background-color: var(--color-medium-gray);
+}
+
+.cookie-banner-buttons .cookie-reject:hover {
+    background-color: var(--color-dark-brown);
+}
+
+/* Responsywność dla banera */
+@media (max-width: 768px) {
+    .cookie-banner {
+        bottom: 10px;
+        left: 10px;
+        right: 10px;
+        padding: 15px;
+    }
+
+    .cookie-banner-content p {
+        font-size: 0.9em;
+    }
+
+    .cookie-banner-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
