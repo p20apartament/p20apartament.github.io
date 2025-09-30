@@ -87,7 +87,7 @@
             <h3>Informacje praktyczne i dodatkowe usługi 📋</h3>
             <br>
             <p>
-                Zameldowanie jest możliwe od godziny 16:00, a wymeldowanie do godziny 10:00. Śniadanie można zamówić już podczas rezerwacji lub w recepcji. Dodatkowo, nasz apartament akceptuje zwierzęta domowe za opłatą 100 zł – prosimy o poinformowanie nas o tym fakcie w uwagach podczas rezerwacji. W cenę pobytu wliczone są wszelkie media, a także pościel, ręczniki, mydło, zestaw kosmetyków i środki czystości.
+                Zameldowanie jest możliwe od godziny 16:00, a wymeldowanie do godziny 10:00. Śniadanie można zamówić już podczas rezerwacji lub w recepcji. Dodatkowo, nasz apartament akceptuje zwierzęta domowe za oprena opłatą 100 zł – prosimy o poinformowanie nas o tym fakcie w uwagach podczas rezerwacji. W cenę pobytu wliczone są wszelkie media, a także pościel, ręczniki, mydło, zestaw kosmetyków i środki czystości.
             </p>
             <br>
         </div>
@@ -121,8 +121,8 @@
                     <img src="images/galery/basen-p20-lazurowy-dwor-sztutowo.jpg" alt="Apartament P20 - Basen" loading="lazy">
                     <p>Basen</p>
                 </div>
-                <div class="gallery-item-placeholder">
-                    <img src="images/galery/sauna-p20-lazurowy-dwor-sztutowo.jpg" alt="Apartament P20 - Sauna" loading="lazy">
+                <div class="images/gallery-item-placeholder">
+                    <img src="galery/sauna-p20-lazurowy-dwor-sztutowo.jpg" alt="Apartament P20 - Sauna" loading="lazy">
                     <p>Sauna</p>
                 </div>
                 <div class="gallery-item-placeholder">
@@ -286,12 +286,20 @@
         </div>
     </div>
 
+    <!-- Modal dla polityki prywatności -->
+    <div class="privacy-modal" id="privacy-modal">
+        <div class="privacy-modal-content">
+            <span class="privacy-modal-close" aria-label="Zamknij okno polityki prywatności">×</span>
+            <iframe class="privacy-iframe" src="" frameborder="0" title="Polityka Prywatności i Cookies"></iframe>
+        </div>
+    </div>
+
     <footer class="main-footer">
         <div class="container">
             <p>© 2024 P20 Apartament w Sztutowie. Wszelkie prawa zastrzeżone.</p>
             <nav class="footer-nav">
                 <ul>
-                    <li><a href="/polityka-prywatnosci">Polityka Prywatności</a></li>
+                    <li><button class="footer-link" data-url="privacy.html">Polityka Prywatności</button></li>
                     <li><a href="/regulamin">Regulamin Obiektu</a></li>
                 </ul>
             </nav>
