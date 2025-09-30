@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // === Elementy Lightboxa (wspólne dla galerii i atrakcji) ===
+    // === Elementy Lightboxa, modala rezerwacji i modala polityki prywatności (bez zmian) ===
     const lightbox = document.querySelector('#lightbox');
     const lightboxImage = document.querySelector('.lightbox-image');
     const lightboxDescription = document.querySelector('.lightbox-description');
@@ -9,16 +9,9 @@ document.addEventListener('DOMContentLoaded', () => {
     function openLightbox(imgSrc, imgAlt, description, wwwLink) {
         lightboxImage.src = imgSrc;
         lightboxImage.alt = imgAlt;
-        
         lightboxDescription.textContent = description;
-        
-        if (wwwLink) {
-            lightboxWwwLink.href = wwwLink;
-            lightboxWwwLink.style.display = 'inline-block';
-        } else {
-            lightboxWwwLink.style.display = 'none';
-        }
-
+        lightboxWwwLink.href = wwwLink;
+        lightboxWwwLink.style.display = wwwLink ? 'inline-block' : 'none';
         lightbox.classList.add('active');
         document.body.style.overflow = 'hidden';
     }
@@ -28,7 +21,6 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.style.overflow = 'auto';
     }
 
-    // === Elementy modala rezerwacji ===
     const bookingModal = document.querySelector('#booking-modal');
     const bookingIframe = document.querySelector('.booking-iframe');
     const bookingClose = document.querySelector('.booking-modal-close');
@@ -41,11 +33,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function closeBookingModal() {
         bookingModal.classList.remove('active');
-        bookingIframe.src = ''; // Czyści iframe dla wydajności
+        bookingIframe.src = '';
         document.body.style.overflow = 'auto';
     }
 
-    // === Elementy modala polityki prywatności ===
     const privacyModal = document.querySelector('#privacy-modal');
     const privacyIframe = document.querySelector('.privacy-iframe');
     const privacyClose = document.querySelector('.privacy-modal-close');
@@ -58,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function closePrivacyModal() {
         privacyModal.classList.remove('active');
-        privacyIframe.src = ''; // Czyści iframe dla wydajności
+        privacyIframe.src = '';
         document.body.style.overflow = 'auto';
     }
 
@@ -109,7 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
             openLightbox(image.src, image.alt, '', '');
         });
     });
-    
+
     // Obsługa lightboxa dla Atrakcji
     const attractionLinks = document.querySelectorAll('.attraction-link');
     attractionLinks.forEach(link => {
@@ -162,6 +153,45 @@ document.addEventListener('DOMContentLoaded', () => {
             closePrivacyModal();
         }
     });
+
+    // Obsługa banera cookies
+    const cookieBanner = document.querySelector('#cookie-banner');
+    const cookieAccept = document.querySelector('.cookie-accept');
+    const cookieReject = document.querySelector('.cookie-reject');
+
+    // Sprawdzenie, czy użytkownik już dokonał wyboru
+    if (!localStorage.getItem('cookieConsent')) {
+        cookieBanner.classList.add('active');
+    }
+
+    // Funkcja ładowania Google Analytics
+    function loadGoogleAnalytics() {
+        const script = document.createElement('script');
+        script.async = true;
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=AW-17526194295';
+        document.head.appendChild(script);
+        gtag('js', new Date());
+        gtag('config', 'AW-17526194295');
+        gtag('event', 'conversion', {'send_to': 'AW-17526194295/QJRyCJ_o1ZMbEPeAkqVB'});
+    }
+
+    // Akceptacja cookies
+    cookieAccept.addEventListener('click', () => {
+        localStorage.setItem('cookieConsent', 'accepted');
+        cookieBanner.classList.remove('active');
+        loadGoogleAnalytics();
+    });
+
+    // Odrzucenie cookies analitycznych
+    cookieReject.addEventListener('click', () => {
+        localStorage.setItem('cookieConsent', 'rejected');
+        cookieBanner.classList.remove('active');
+    });
+
+    // Ładowanie Google Analytics, jeśli użytkownik wcześniej zaakceptował
+    if (localStorage.getItem('cookieConsent') === 'accepted') {
+        loadGoogleAnalytics();
+    }
 
     // Obsługa klawisza Esc dla zamykania modala i lightboxa
     document.addEventListener('keydown', (e) => {
