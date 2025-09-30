@@ -1,4 +1,50 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // === Elementy Lightboxa (wspólne dla galerii i atrakcji) ===
+    const lightbox = document.querySelector('#lightbox');
+    const lightboxImage = document.querySelector('.lightbox-image');
+    const lightboxDescription = document.querySelector('.lightbox-description');
+    const lightboxWwwLink = document.querySelector('.lightbox-www-link');
+    const lightboxClose = document.querySelector('.lightbox-close');
+
+    function openLightbox(imgSrc, imgAlt, description, wwwLink) {
+        lightboxImage.src = imgSrc;
+        lightboxImage.alt = imgAlt;
+        
+        lightboxDescription.textContent = description;
+        
+        if (wwwLink) {
+            lightboxWwwLink.href = wwwLink;
+            lightboxWwwLink.style.display = 'inline-block';
+        } else {
+            lightboxWwwLink.style.display = 'none';
+        }
+
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    }
+
+    // === Elementy modala rezerwacji ===
+    const bookingModal = document.querySelector('#booking-modal');
+    const bookingIframe = document.querySelector('.booking-iframe');
+    const bookingClose = document.querySelector('.booking-modal-close');
+
+    function openBookingModal(url) {
+        bookingIframe.src = url;
+        bookingModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeBookingModal() {
+        bookingModal.classList.remove('active');
+        bookingIframe.src = ''; // Czyści iframe dla wydajności
+        document.body.style.overflow = 'auto';
+    }
+
     // Płynne przewijanie
     const navLinks = document.querySelectorAll('.main-nav a');
     for (const link of navLinks) {
@@ -39,30 +85,60 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Obsługa lightboxa
+    // Obsługa lightboxa dla Galerii
     const galleryImages = document.querySelectorAll('.gallery-item-placeholder img');
-    const lightbox = document.querySelector('#lightbox');
-    const lightboxImage = document.querySelector('.lightbox-image');
-    const lightboxClose = document.querySelector('.lightbox-close');
-
     galleryImages.forEach(image => {
         image.addEventListener('click', () => {
-            lightboxImage.src = image.src;
-            lightboxImage.alt = image.alt;
-            lightbox.classList.add('active');
-            document.body.style.overflow = 'hidden'; // Wyłącza przewijanie strony
+            openLightbox(image.src, image.alt, '', '');
+        });
+    });
+    
+    // Obsługa lightboxa dla Atrakcji
+    const attractionLinks = document.querySelectorAll('.attraction-link');
+    attractionLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const imgSrc = link.dataset.img;
+            const imgAlt = link.dataset.alt;
+            const description = link.dataset.desc;
+            const wwwLink = link.dataset.www;
+            openLightbox(imgSrc, imgAlt, description, wwwLink);
         });
     });
 
-    lightboxClose.addEventListener('click', () => {
-        lightbox.classList.remove('active');
-        document.body.style.overflow = 'auto'; // Przywraca przewijanie strony
-    });
-
+    // Obsługa zamykania lightboxa
+    lightboxClose.addEventListener('click', closeLightbox);
     lightbox.addEventListener('click', (e) => {
         if (e.target === lightbox) {
-            lightbox.classList.remove('active');
-            document.body.style.overflow = 'auto'; // Przywraca przewijanie strony
+            closeLightbox();
+        }
+    });
+
+    // Obsługa modala rezerwacji
+    const bookingButtons = document.querySelectorAll('.btn[data-url]');
+    bookingButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const url = button.dataset.url;
+            openBookingModal(url);
+        });
+    });
+
+    bookingClose.addEventListener('click', closeBookingModal);
+    bookingModal.addEventListener('click', (e) => {
+        if (e.target === bookingModal) {
+            closeBookingModal();
+        }
+    });
+
+    // Obsługa klawisza Esc dla zamykania modala i lightboxa
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            if (lightbox.classList.contains('active')) {
+                closeLightbox();
+            }
+            if (bookingModal.classList.contains('active')) {
+                closeBookingModal();
+            }
         }
     });
 });
