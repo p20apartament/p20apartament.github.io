@@ -45,6 +45,23 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.style.overflow = 'auto';
     }
 
+    // === Elementy modala polityki prywatności ===
+    const privacyModal = document.querySelector('#privacy-modal');
+    const privacyIframe = document.querySelector('.privacy-iframe');
+    const privacyClose = document.querySelector('.privacy-modal-close');
+
+    function openPrivacyModal(url) {
+        privacyIframe.src = url;
+        privacyModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closePrivacyModal() {
+        privacyModal.classList.remove('active');
+        privacyIframe.src = ''; // Czyści iframe dla wydajności
+        document.body.style.overflow = 'auto';
+    }
+
     // Płynne przewijanie
     const navLinks = document.querySelectorAll('.main-nav a');
     for (const link of navLinks) {
@@ -130,6 +147,22 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // Obsługa modala polityki prywatności
+    const privacyButtons = document.querySelectorAll('.footer-link[data-url]');
+    privacyButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const url = button.dataset.url;
+            openPrivacyModal(url);
+        });
+    });
+
+    privacyClose.addEventListener('click', closePrivacyModal);
+    privacyModal.addEventListener('click', (e) => {
+        if (e.target === privacyModal) {
+            closePrivacyModal();
+        }
+    });
+
     // Obsługa klawisza Esc dla zamykania modala i lightboxa
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
@@ -138,6 +171,9 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             if (bookingModal.classList.contains('active')) {
                 closeBookingModal();
+            }
+            if (privacyModal.classList.contains('active')) {
+                closePrivacyModal();
             }
         }
     });
