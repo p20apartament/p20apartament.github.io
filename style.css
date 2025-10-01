@@ -599,12 +599,12 @@ body {
 .booking-modal-content {
     position: relative;
     background-color: var(--color-white);
-    max-width: 90%;
-    max-height: 100vh;
+    max-width: 95%;
+    max-height: 95vh;
     width: 100%;
     height: 90vh;
     border-radius: 10px;
-    overflow: hidden;
+    overflow: auto; /* Włączenie przewijania */
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
@@ -650,12 +650,12 @@ body {
 .privacy-modal-content {
     position: relative;
     background-color: var(--color-white);
-    max-width: 90%;
-    max-height: 90vh;
+    max-width: 95%;
+    max-height: 95vh;
     width: 100%;
-    height: 80vh;
+    height: 90vh;
     border-radius: 10px;
-    overflow: auto;
+    overflow: auto; /* Włączenie przewijania */
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
@@ -677,6 +677,55 @@ body {
 
 .privacy-modal-close:hover {
     color: var(--color-accent-green);
+}
+
+/* Styling dla banera cookies */
+.cookie-banner {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    background-color: var(--color-white);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    z-index: 3000;
+    padding: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.cookie-banner.active {
+    display: block;
+}
+
+.cookie-banner-content {
+    text-align: center;
+}
+
+.cookie-banner-content p {
+    font-size: 1em;
+    color: var(--color-text-dark);
+    margin-bottom: 20px;
+}
+
+.cookie-banner-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.cookie-banner-buttons .btn {
+    padding: 10px 20px;
+    font-size: 0.9em;
+}
+
+.cookie-banner-buttons .cookie-reject {
+    background-color: var(--color-medium-gray);
+}
+
+.cookie-banner-buttons .cookie-reject:hover {
+    background-color: var(--color-dark-brown);
 }
 
 /* Responsywność */
@@ -825,8 +874,24 @@ body {
 
     .booking-modal-content,
     .privacy-modal-content {
-        max-height: 85vh;
-        height: 90%;
+        max-height: 90vh; /* Zwiększono z 85vh */
+        height: 95%; /* Zwiększono z 90% */
+    }
+
+    .cookie-banner {
+        bottom: 10px;
+        left: 10px;
+        right: 10px;
+        padding: 15px;
+    }
+
+    .cookie-banner-content p {
+        font-size: 0.9em;
+    }
+
+    .cookie-banner-buttons {
+        flex-direction: column;
+        gap: 10px;
     }
 }
 
@@ -854,72 +919,4 @@ body {
 .floating-button-container a:hover {
     transform: scale(1.1);
     background-color: #2b457c;
-}
-
-/* Styling dla banera cookies */
-.cookie-banner {
-    display: none;
-    position: fixed;
-    bottom: 20px;
-    left: 20px;
-    right: 20px;
-    background-color: var(--color-white);
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    z-index: 3000;
-    padding: 20px;
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-.cookie-banner.active {
-    display: block;
-}
-
-.cookie-banner-content {
-    text-align: center;
-}
-
-.cookie-banner-content p {
-    font-size: 1em;
-    color: var(--color-text-dark);
-    margin-bottom: 20px;
-}
-
-.cookie-banner-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-}
-
-.cookie-banner-buttons .btn {
-    padding: 10px 20px;
-    font-size: 0.9em;
-}
-
-.cookie-banner-buttons .cookie-reject {
-    background-color: var(--color-medium-gray);
-}
-
-.cookie-banner-buttons .cookie-reject:hover {
-    background-color: var(--color-dark-brown);
-}
-
-/* Responsywność dla banera */
-@media (max-width: 768px) {
-    .cookie-banner {
-        bottom: 10px;
-        left: 10px;
-        right: 10px;
-        padding: 15px;
-    }
-
-    .cookie-banner-content p {
-        font-size: 0.9em;
-    }
-
-    .cookie-banner-buttons {
-        flex-direction: column;
-        gap: 10px;
-    }
 }
