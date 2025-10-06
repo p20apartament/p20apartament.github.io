@@ -154,6 +154,47 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+ // Obsługa modala regulaminu
+ const regulaminModal = document.querySelector('#regulamin-modal');
+const regulaminIframe = document.querySelector('.regulamin-iframe');
+const regulaminClose = document.querySelector('.regulamin-modal-close');
+
+function openRegulaminModal(url) {
+    regulaminIframe.src = url;
+    regulaminModal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeRegulaminModal() {
+    regulaminModal.classList.remove('active');
+    regulaminIframe.src = '';
+    document.body.style.overflow = 'auto';
+}
+
+const regulaminButtons = document.querySelectorAll('.footer-link[data-url="regulamin.html"]');
+regulaminButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        const url = button.dataset.url;
+        openRegulaminModal(url);
+    });
+});
+
+regulaminClose.addEventListener('click', closeRegulaminModal);
+regulaminModal.addEventListener('click', (e) => {
+    if (e.target === regulaminModal) {
+        closeRegulaminModal();
+    }
+});
+
+// Dodaj do obsługi Esc
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        if (regulaminModal.classList.contains('active')) {
+            closeRegulaminModal();
+        }
+    }
+});
+
     // Obsługa banera cookies
     const cookieBanner = document.querySelector('#cookie-banner');
     const cookieAccept = document.querySelector('.cookie-accept');
