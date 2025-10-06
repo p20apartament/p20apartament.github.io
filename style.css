@@ -506,10 +506,81 @@ body {
     color: var(--color-accent-green);
 }
 
-/* Ukryj przycisk hamburgera domyślnie na dużych ekranach */
+/* Menu hamburgerowe */
+/* Styl dla przycisku hamburgerowego */
 .menu-toggle {
-    display: none;
+    display: none; /* Domyślnie ukryty na dużych ekranach */
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 20px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001;
 }
+
+.menu-toggle span {
+    width: 100%;
+    height: 3px;
+    background-color: var(--color-light-beige);
+    transition: all 0.3s ease;
+}
+
+.menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* Responsywne menu */
+@media (max-width: 768px) {
+    /* Pokaż przycisk hamburgerowy */
+    .menu-toggle {
+        display: flex;
+    }
+
+    /* Ukryj domyślne menu */
+    .main-nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--color-logo-blue);
+        padding: 20px 0;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Pokaż menu po aktywacji */
+    .main-nav.active {
+        display: block;
+    }
+
+    /* Styl dla listy menu w trybie mobilnym */
+    .main-nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .main-nav ul li {
+        margin: 10px 0;
+    }
+
+    .main-nav ul li a {
+        font-size: 1.2em;
+        padding: 10px;
+        display: block;
+    }
+}
+
 
 /* Styling dla klikalnych atrakcji */
 .location-section .attractions-list {
