@@ -679,6 +679,53 @@ body {
     color: var(--color-accent-green);
 }
 
+/* Modal regulaminu */
+
+.regulamin-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+.regulamin-modal.active {
+    display: flex;
+}
+.regulamin-modal-content {
+    position: relative;
+    background-color: var(--color-white);
+    max-width: 95%;
+    max-height: 95vh;
+    width: 100%;
+    height: 90vh;
+    border-radius: 10px;
+    overflow: auto;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+.regulamin-iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+.regulamin-modal-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 2em;
+    color: var(--color-dark-brown);
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+.regulamin-modal-close:hover {
+    color: var(--color-accent-green);
+}
+
 /* Styling dla banera cookies */
 .cookie-banner {
     display: none;
@@ -724,199 +771,4 @@ body {
     background-color: var(--color-medium-gray);
 }
 
-.cookie-banner-buttons .cookie-reject:hover {
-    background-color: var(--color-dark-brown);
-}
-
-/* Responsywność */
-@media (max-width: 768px) {
-    .main-header .container {
-        flex-direction: row;
-        justify-content: space-between;
-    }
-    
-    .main-header .logo {
-        height: 40px;
-        z-index: 1002;
-    }
-
-    .main-header .logo img {
-        height: 100%;
-        width: auto;
-        display: block;
-    }
-
-    .main-nav {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(62, 91, 109, 0.95);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transform: translateY(-100%);
-        transition: transform 0.4s ease-in-out;
-        z-index: 999;
-    }
-
-    .main-header.menu-open .logo {
-        opacity: 0;
-    }
-
-    .main-nav.active {
-        transform: translateY(0);
-    }
-
-    .main-nav ul {
-        flex-direction: column;
-        text-align: center;
-        list-style: none;
-        margin-top: 0;
-    }
-
-    .main-nav ul li {
-        margin: 20px 0;
-    }
-
-    .main-nav ul li a {
-        font-size: 1.5em;
-        color: var(--color-white);
-    }
-    
-    .menu-toggle {
-        display: block;
-        background: none;
-        border: none;
-        cursor: pointer;
-        padding: 10px;
-        position: relative;
-        z-index: 1001;
-        align: center;
-    }
-
-    .menu-toggle span {
-        display: block;
-        width: 25px;
-        height: 3px;
-        background-color: var(--color-light-beige);
-        margin: 5px 0;
-        transition: transform 0.3s ease, opacity 0.3s ease;
-    }
-
-    .menu-toggle.active span:nth-child(1) {
-        transform: rotate(45deg) translate(5px, 5px);
-    }
-    .menu-toggle.active span:nth-child(2) {
-        opacity: 0;
-    }
-    .menu-toggle.active span:nth-child(3) {
-        transform: rotate(-45deg) translate(5px, -5px);
-    }
-
-    .hero-section h2 {
-        font-size: 2.2em;
-    }
-
-    .hero-section p {
-        font-size: 1em;
-    }
-
-    .section {
-        padding: 60px 0;
-    }
-
-    .section h2 {
-        font-size: 2em;
-    }
-
-    .about-section ul,
-    .location-section ul {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .gallery-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .testimonial-item {
-        padding: 20px;
-    }
-
-    .price-table-placeholder table {
-        width: 100%;
-        font-size: 0.9em;
-    }
-
-    .footer-nav ul {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .lightbox-image {
-        max-width: 95%;
-        max-height: 80vh;
-    }
-
-    .lightbox-caption {
-        padding: 10px;
-        max-width: 100%;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        border-radius: 0;
-    }
-    .lightbox-description {
-        font-size: 1em;
-    }
-
-    .booking-modal-content,
-    .privacy-modal-content {
-        max-height: 90vh; /* Zwiększono z 85vh */
-        height: 95%; /* Zwiększono z 90% */
-    }
-
-    .cookie-banner {
-        bottom: 10px;
-        left: 10px;
-        right: 10px;
-        padding: 15px;
-    }
-
-    .cookie-banner-content p {
-        font-size: 0.9em;
-    }
-
-    .cookie-banner-buttons {
-        flex-direction: column;
-        gap: 10px;
-    }
-}
-
-.floating-button-container {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 1000;
-}
-
-.floating-button-container a {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background-color: #3b5998;
-    color: #fff;
-    font-size: 30px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease, background-color 0.3s ease;
-}
-
-.floating-button-container a:hover {
-    transform: scale(1.1);
-    background-color: #2b457c;
-}
+.cookie-banner-buttons .cookie-re
