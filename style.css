@@ -279,7 +279,7 @@ body {
     z-index: 2000;
     align-items: center;
     justify-content: center;
-    padding: 20px;
+    padding: 10px;
 }
 
 .lightbox.active {
@@ -288,7 +288,7 @@ body {
 
 .lightbox-image {
     max-width: 90%;
-    max-height: 90vh;
+    max-height: 80vh; /* Zmniejszono, aby zrobić miejsce na podpis */
     object-fit: contain;
     border-radius: 5px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
@@ -306,6 +306,81 @@ body {
 
 .lightbox-close:hover {
     color: var(--color-accent-green);
+}
+
+.lightbox-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.6); /* Zwiększona przezroczystość */
+    color: var(--color-white);
+    text-align: center;
+    max-width: 90%;
+    margin: 0 auto;
+    border-radius: 0 0 5px 5px;
+    z-index: 2001;
+}
+
+.lightbox-description {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.lightbox-www-link {
+    color: var(--color-accent-green);
+    font-weight: 700;
+    text-decoration: none;
+    border: 1px solid var(--color-accent-green);
+    padding: 5px 15px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.lightbox-www-link:hover {
+    background-color: var(--color-accent-green);
+    color: var(--color-white);
+}
+
+/* Responsywne style dla urządzeń mobilnych */
+@media (max-width: 768px) {
+    .lightbox {
+        padding: 5px; /* Mniejszy padding na urządzeniach mobilnych */
+        align-items: flex-start; /* Zdjęcie zaczyna się od góry */
+    }
+
+    .lightbox-image {
+        max-width: 100%; /* Zdjęcie wypełnia szerokość ekranu */
+        max-height: 70vh; /* Maksymalna wysokość zdjęcia, aby zmieścić podpis */
+        width: 100%;
+        object-fit: cover; /* Wypełnia przestrzeń, zachowując proporcje */
+        border-radius: 0; /* Usunięto zaokrąglenia dla pełnoekranowego efektu */
+    }
+
+    .lightbox-caption {
+        background: rgba(0, 0, 0, 0.5); /* Jeszcze bardziej przezroczyste tło */
+        padding: 10px;
+        max-width: 100%; /* Pełna szerokość na mobilnych */
+        font-size: 0.9em; /* Mniejszy tekst dla lepszego dopasowania */
+    }
+
+    .lightbox-description {
+        font-size: 0.9em;
+        margin-bottom: 8px;
+    }
+
+    .lightbox-www-link {
+        font-size: 0.8em;
+        padding: 4px 12px;
+    }
+
+    .lightbox-close {
+        font-size: 2em;
+        top: 10px;
+        right: 10px;
+    }
 }
 
 /* Lokalizacja */
