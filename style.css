@@ -345,7 +345,7 @@ body {
 }
 
 /* Responsywne style dla urządzeń mobilnych */
-@media (max-width: 850px) {
+@media (max-width: 768px) {
     .lightbox {
         padding: 5px; /* Mniejszy padding na urządzeniach mobilnych */
         align-items: flex-start; /* Zdjęcie zaczyna się od góry */
@@ -616,7 +616,7 @@ body {
 }
 
 /* Responsywne menu */
-@media (max-width: 768px) {
+@media (max-width: 850px) {
     /* Pokaż przycisk hamburgerowy */
     .menu-toggle {
         display: flex;
