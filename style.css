@@ -448,40 +448,6 @@ body {
 }
 
 /* Cennik */
-.price-table-placeholder {
-    width: 100%;
-    min-height: 200px;
-    background-color: var(--color-white);
-    border: 2px dashed var(--color-accent-green);
-    margin: 40px auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    color: var(--color-accent-green);
-    font-weight: 600;
-    font-size: 1.2em;
-}
-
-.price-table-placeholder table {
-    width: 80%;
-    border-collapse: collapse;
-    margin-bottom: 20px;
-    color: var(--color-text-dark);
-}
-
-.price-table-placeholder th,
-.price-table-placeholder td {
-    border: 1px solid var(--color-logo-beige);
-    padding: 10px;
-    text-align: left;
-}
-
-.price-table-placeholder th {
-    background-color: var(--color-logo-blue);
-    color: var(--color-light-beige);
-    font-weight: 700;
-}
 
 .pricing-section p {
     text-align: justify;
@@ -536,35 +502,6 @@ body {
 
 .contact-info a:hover {
     color: var(--color-accent-green);
-}
-
-.contact-form {
-    display: flex;
-    flex-direction: column;
-    max-width: 600px;
-    margin: 40px auto 0;
-    gap: 15px;
-}
-
-.contact-form input[type="text"],
-.contact-form input[type="email"],
-.contact-form textarea {
-    padding: 12px;
-    border: 1px solid var(--color-logo-blue);
-    border-radius: 5px;
-    font-size: 1em;
-    width: 100%;
-    background-color: var(--color-white);
-    color: var(--color-text-dark);
-}
-
-.contact-form textarea {
-    resize: vertical;
-}
-
-.contact-form button.btn {
-    width: auto;
-    align-self: flex-end;
 }
 
 /* Stopka (Footer) */
@@ -941,9 +878,6 @@ body {
     background-color: var(--color-medium-gray);
 }
 
-.cookie-banner-buttons .cookie-reject {
-    background-color: var(--color-medium-gray);
-}
 /* Pływający przycisk Facebook */
 body .floating-button-container {
     position: fixed !important;
