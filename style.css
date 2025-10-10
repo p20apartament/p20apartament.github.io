@@ -226,7 +226,7 @@ body {
     }
 
     .hero-section {
-        height: 90vh; /* Usuwamy stałą wysokość, aby sekcja dostosowała się do treści */
+        height: auto; /* Usuwamy stałą wysokość, aby sekcja dostosowała się do treści */
         min-height: 60vh; /* Minimalna wysokość, aby zachować efekt tła */
         padding: 20px 0; /* Dodajemy padding w pionie */
     }
