@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // === Elementy Lightboxa, modala rezerwacji i modala polityki prywatności (bez zmian) ===
+    // === Elementy Lightboxa ===
     const lightbox = document.querySelector('#lightbox');
     const lightboxImage = document.querySelector('.lightbox-image');
     const lightboxDescription = document.querySelector('.lightbox-description');
@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.style.overflow = 'auto';
     }
 
+    // === Modal rezerwacji ===
     const bookingModal = document.querySelector('#booking-modal');
     const bookingIframe = document.querySelector('.booking-iframe');
     const bookingClose = document.querySelector('.booking-modal-close');
@@ -37,6 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.style.overflow = 'auto';
     }
 
+    // === Modal polityki prywatności ===
     const privacyModal = document.querySelector('#privacy-modal');
     const privacyIframe = document.querySelector('.privacy-iframe');
     const privacyClose = document.querySelector('.privacy-modal-close');
@@ -53,7 +55,60 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.style.overflow = 'auto';
     }
 
-    // Płynne przewijanie
+    // === Modal regulaminu ===
+    const regulaminModal = document.querySelector('#regulamin-modal');
+    const regulaminIframe = document.querySelector('.regulamin-iframe');
+    const regulaminClose = document.querySelector('.regulamin-modal-close');
+
+    function openRegulaminModal(url) {
+        regulaminIframe.src = url;
+        regulaminModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeRegulaminModal() {
+        regulaminModal.classList.remove('active');
+        regulaminIframe.src = '';
+        document.body.style.overflow = 'auto';
+    }
+
+    // === Modal eventu ===
+    const eventModal = document.querySelector('#event-modal');
+    const eventIframe = document.querySelector('.event-iframe');
+    const eventClose = document.querySelector('.event-modal-close');
+
+    // Flaga do włączania/wyłączania modala eventu (zmień na true/false w zależności od potrzeby)
+    const showEventModal = true; // Ustaw na true, aby pokazać modal, false aby zamknąć
+    const eventFile = 'event.html'; // Plik HTML dla eventu
+
+    function openEventModal(url) {
+        if (showEventModal) {
+            eventIframe.src = url;
+            eventModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+    }
+
+    function closeEventModal() {
+        eventModal.classList.remove('active');
+        eventIframe.src = '';
+        document.body.style.overflow = 'auto';
+    }
+
+    // Automatyczne otwarcie modala eventu przy ładowaniu strony, jeśli flaga jest true
+    if (showEventModal) {
+        openEventModal(eventFile);
+    }
+
+    // Obsługa zamykania modala eventu
+    eventClose.addEventListener('click', closeEventModal);
+    eventModal.addEventListener('click', (e) => {
+        if (e.target === eventModal) {
+            closeEventModal();
+        }
+    });
+
+    // === Płynne przewijanie ===
     const navLinks = document.querySelectorAll('.main-nav a');
     for (const link of navLinks) {
         link.addEventListener('click', smoothScroll);
@@ -72,7 +127,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Obsługa menu mobilnego
+    // === Obsługa menu mobilnego ===
     const menuToggle = document.querySelector('.menu-toggle');
     const mainNav = document.querySelector('.main-nav');
     const header = document.querySelector('.main-header');
@@ -93,7 +148,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Obsługa lightboxa dla Galerii
+    // === Obsługa lightboxa dla galerii ===
     const galleryImages = document.querySelectorAll('.gallery-item-placeholder img');
     galleryImages.forEach(image => {
         image.addEventListener('click', () => {
@@ -101,7 +156,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Obsługa lightboxa dla Atrakcji
+    // === Obsługa lightboxa dla atrakcji ===
     const attractionLinks = document.querySelectorAll('.attraction-link');
     attractionLinks.forEach(link => {
         link.addEventListener('click', (e) => {
@@ -114,7 +169,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Obsługa zamykania lightboxa
+    // === Obsługa zamykania lightboxa ===
     lightboxClose.addEventListener('click', closeLightbox);
     lightbox.addEventListener('click', (e) => {
         if (e.target === lightbox) {
@@ -122,7 +177,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Obsługa modala rezerwacji
+    // === Obsługa modala rezerwacji ===
     const bookingButtons = document.querySelectorAll('.btn[data-url]');
     bookingButtons.forEach(button => {
         button.addEventListener('click', () => {
@@ -138,7 +193,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Obsługa modala polityki prywatności
+    // === Obsługa modala polityki prywatności ===
     const privacyButtons = document.querySelectorAll('.footer-link[data-url]');
     privacyButtons.forEach(button => {
         button.addEventListener('click', () => {
@@ -154,48 +209,23 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
- // Obsługa modala regulaminu
- const regulaminModal = document.querySelector('#regulamin-modal');
-const regulaminIframe = document.querySelector('.regulamin-iframe');
-const regulaminClose = document.querySelector('.regulamin-modal-close');
-
-function openRegulaminModal(url) {
-    regulaminIframe.src = url;
-    regulaminModal.classList.add('active');
-    document.body.style.overflow = 'hidden';
-}
-
-function closeRegulaminModal() {
-    regulaminModal.classList.remove('active');
-    regulaminIframe.src = '';
-    document.body.style.overflow = 'auto';
-}
-
-const regulaminButtons = document.querySelectorAll('.footer-link[data-url="regulamin.html"]');
-regulaminButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        const url = button.dataset.url;
-        openRegulaminModal(url);
+    // === Obsługa modala regulaminu ===
+    const regulaminButtons = document.querySelectorAll('.footer-link[data-url="regulamin.html"]');
+    regulaminButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const url = button.dataset.url;
+            openRegulaminModal(url);
+        });
     });
-});
 
-regulaminClose.addEventListener('click', closeRegulaminModal);
-regulaminModal.addEventListener('click', (e) => {
-    if (e.target === regulaminModal) {
-        closeRegulaminModal();
-    }
-});
-
-// Dodaj do obsługi Esc
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-        if (regulaminModal.classList.contains('active')) {
+    regulaminClose.addEventListener('click', closeRegulaminModal);
+    regulaminModal.addEventListener('click', (e) => {
+        if (e.target === regulaminModal) {
             closeRegulaminModal();
         }
-    }
-});
+    });
 
-    // Obsługa banera cookies
+    // === Obsługa banera cookies ===
     const cookieBanner = document.querySelector('#cookie-banner');
     const cookieAccept = document.querySelector('.cookie-accept');
     const cookieReject = document.querySelector('.cookie-reject');
@@ -234,7 +264,7 @@ document.addEventListener('keydown', (e) => {
         loadGoogleAnalytics();
     }
 
-    // Obsługa klawisza Esc dla zamykania modala i lightboxa
+    // === Obsługa klawisza Escape dla wszystkich modali ===
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
             if (lightbox.classList.contains('active')) {
@@ -245,6 +275,12 @@ document.addEventListener('keydown', (e) => {
             }
             if (privacyModal.classList.contains('active')) {
                 closePrivacyModal();
+            }
+            if (regulaminModal.classList.contains('active')) {
+                closeRegulaminModal();
+            }
+            if (eventModal.classList.contains('active')) {
+                closeEventModal();
             }
         }
     });
