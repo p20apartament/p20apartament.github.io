@@ -226,7 +226,7 @@ body {
     }
 
     .hero-section {
-        height: auto; /* Usuwamy stałą wysokość, aby sekcja dostosowała się do treści */
+        height: 90vh; /* Usuwamy stałą wysokość, aby sekcja dostosowała się do treści */
         min-height: 60vh; /* Minimalna wysokość, aby zachować efekt tła */
         padding: 20px 0; /* Dodajemy padding w pionie */
     }
@@ -941,4 +941,50 @@ body {
     background-color: var(--color-medium-gray);
 }
 
-.cookie-banner-buttons .cookie-re
+.cookie-banner-buttons .cookie-reject {
+    background-color: var(--color-medium-gray);
+}
+/* Pływający przycisk Facebook */
+body .floating-button-container {
+    position: fixed !important;
+    bottom: 20px !important;
+    right: 20px !important;
+    left: auto !important;
+    z-index: 10000 !important; /* Bardzo wysoki z-index */
+}
+
+body .floating-button-container a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    background-color: #1877f2;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 50%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+    font-size: 24px;
+}
+
+body .floating-button-container a:hover {
+    background-color: #166fe5;
+    transform: scale(1.1);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsywność na mniejszych ekranach */
+@media (max-width: 768px) {
+    body .floating-button-container {
+        bottom: 15px !important;
+        right: 15px !important;
+        left: auto !important;
+    }
+
+    body .floating-button-container a {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+    }
+}
