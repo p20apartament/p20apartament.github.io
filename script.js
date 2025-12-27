@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const eventClose = document.querySelector('.event-modal-close');
 
     // Flaga do włączania/wyłączania modala eventu (zmień na true/false w zależności od potrzeby)
-    const showEventModal = false; // Ustaw na true, aby pokazać modal, false aby zamknąć
+    const showEventModal = true; // Ustaw na true, aby pokazać modal, false aby zamknąć
     const eventFile = 'event.html'; // Plik HTML dla eventu
 
     function openEventModal(url) {
