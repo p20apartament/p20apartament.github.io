@@ -2,47 +2,121 @@
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
-    <title>Oferta Andrzejkowa</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ferie Zimowe 2026 w Apartamencie P20</title>
     <style>
-        body { font-family: 'Montserrat', sans-serif; padding: 20px; text-align: center; }
-        h2 { color: #3E5B6D; }
-        p { text-align: justify; }
+        /* Stylizacja wyłącznie dla podstrony event.html wyświetlanego w modalu */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            color: #ffffff;
+            min-height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url('images/event/ferie-zimowe-p20.jpg') center/cover no-repeat fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .event-container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 40px 30px;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 15px;
+            backdrop-filter: blur(8px);
+        }
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.2em;
+            margin-bottom: 20px;
+            text-shadow: 0 3px 10px rgba(0,0,0,0.8);
+        }
+        h2 {
+            font-size: 2em;
+            margin: 35px 0 20px;
+            color: #7BBF7D;
+            text-shadow: 0 2px 6px rgba(0,0,0,0.8);
+        }
+        p {
+            font-size: 1.25em;
+            line-height: 1.7;
+            margin-bottom: 20px;
+            text-shadow: 0 1px 4px rgba(0,0,0,0.8);
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+            max-width: 700px;
+            margin: 30px auto;
+        }
+        li {
+            font-size: 1.3em;
+            padding: 12px 0;
+            position: relative;
+            padding-left: 40px;
+        }
+        li::before {
+            content: '✦';
+            color: #7BBF7D;
+            position: absolute;
+            left: 0;
+            font-size: 1.4em;
+        }
+        .btn {
+            display: inline-block;
+            background-color: #7BBF7D;
+            color: #ffffff;
+            padding: 15px 35px;
+            margin-top: 30px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.3em;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+        }
+        .btn:hover {
+            background-color: #4A3C32;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+        }
+        .small {
+            font-size: 0.9em;
+            margin-top: 40px;
+            opacity: 0.9;
+        }
+        @media (max-width: 768px) {
+            h1 { font-size: 2.4em; }
+            h2 { font-size: 1.7em; }
+            p, li { font-size: 1.1em; }
+            .event-container { margin: 20px; padding: 30px 20px; }
+        }
     </style>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h2>Oferta Andrzejkowa w P20 Apartamencie!</h2>
-    <p>Zapraszamy na magiczną noc andrzejkową w naszym komfortowym apartamencie. Specjalna cena: 200 zł/doba. Wliczone wróżby i lampka wina!</p>
-    <!-- Dodaj więcej treści, np. obrazy, szczegóły -->
-    <div id="ceneoaffcontainer779918"></div>
-<a id="ceneoaff-logo" title="Ceneo.pl" href="https://www.ceneo.pl/#pid=30273&crid=779918&cid=50565" rel="nofollow"><img style="border:0;width:1px;height:1px;" src="//image.ceneostatic.pl/data/custom_images/4917/custom_image.png" alt="Ceneo.pl" /></a>
-<script type="text/javascript" charset="utf-8">
-	if (typeof CeneoAPOptions == "undefined" || CeneoAPOptions == null)
-	{
-	var CeneoAPOptions = new Array(); 
-	stamp = parseInt(new Date().getTime()/86400, 10);
-	var script = document.createElement("script");
-	script.setAttribute("type", "text/javascript");
-	script.setAttribute("src", "//partnerzyapi.ceneo.pl/External/ap.js?"+stamp);
-	script.setAttribute("charset", "utf-8");
-	var head = document.getElementsByTagName("head")[0];
-	head.appendChild(script);
-	}
-	CeneoAPOptions[CeneoAPOptions.length] =
-	{
-		ad_creation: 779918,
-		ad_channel: 50565,
-		ad_partner: 30273,
-		ad_type: 1,
-		ad_content: '615,624,970,971,979,4142,4682,4683,4684,4685',
-		ad_format: 1,
-		ad_newpage: true,
-		ad_basket: true,
-		ad_container: 'ceneoaffcontainer779918',
-		ad_formatTypeId: 1,
-		ad_contextual: false, 
-		ad_recommended: false, 
-		ad_showRank: false 
-	};
-</script>
+
+<div class="event-container">
+    <h1>Ferie Zimowe 2026 w P20</h1>
+    <p>Zapraszamy na spokojny, zimowy wypoczynek nad Bałtykiem – z dala od zgiełku miast i stoków narciarskich.</p>
+
+    <h2>5 powodów, dla których warto wybrać właśnie P20 na ferie:</h2>
+    <ul>
+        <li>Cisza i kontakt z naturą – zimowe spacery po pustej plaży i lasach Mierzei Wiślanej to prawdziwy reset dla ciała i umysłu.</li>
+        <li>Atrakcyjne ceny poza sezonem – w styczniu i lutym oferujemy najniższe stawki w roku + elastyczne długości pobytu.</li>
+        <li>Doskonała baza na jednodniowe wypady – Gdańsk, Malbork, Frombork, Elbląg i Przekop Mierzei Wiślanej są w zasięgu 30-60 minut samochodem.</li>
+    </ul>
+
+    <p class="small">
+        * Aktualnie (sezon zimowy 2025/2026) grota solna, sauna i jacuzzi są wyłączone z użytkowania z powodu remontu strefy wellness.
+    </p>
+
+    <a href="https://www.booking.com/hotel/pl/p20-apartament.pl.html?label=gen173bo-10CAsotgFCDnAyMC1hcGFydGFtZW50SDNYA2i2AYgBAZgBM7gBGcgBD9gBA-gBAfgBAYgCAZgCBqgCAbgCvvyLyQbAAgHSAiRiZDlmZDBkOC0wYWExLTRkMmYtYTUxMS02MmJjZjE2YWJmODTYAgHgAgE&sid=9b884fadb572807532b233fe2d4e761c&dist=0&group_adults=2&group_children=0&no_rooms=1&sb_price_type=total&type=total" 
+       class="btn" target="_blank">
+       Sprawdź terminy i zarezerwuj teraz!
+    </a>
+</div>
+
 </body>
 </html>
