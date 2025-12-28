@@ -11,8 +11,8 @@
             padding: 0;
             font-family: 'Montserrat', sans-serif;
             color: #ffffff;
-            min-height: 75vh;
-            background: linear-gradient(rgba(0, 0, 0, 0, rgba(0, 0, 0, 0)), url('images/event/ferie-zimowe-p20.jpg') center/cover no-repeat fixed;
+            min-height: 80vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url('images/event/ferie-zimowe-p20.jpg') center/cover no-repeat fixed;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -22,7 +22,7 @@
             margin: 40px auto;
             padding: 40px 30px;
             text-align: center;
-            background: rgba(0, 0, 0, 0.15);
+            background: rgba(0, 0, 0, 0.35); /* Lżejsze tło kontenera */
             border-radius: 15px;
             backdrop-filter: blur(10px);
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
@@ -76,8 +76,6 @@
             text-decoration: none;
             transition: all 0.3s ease;
             box-shadow: 0 5px 15px rgba(0,0,0,0.4);
-            border: none;
-            cursor: pointer;
         }
         .btn:hover {
             background-color: #4A3C32;
@@ -115,23 +113,11 @@
         * Aktualnie (sezon zimowy 2025/2026) grota solna, sauna i jacuzzi są wyłączone z użytkowania z powodu remontu strefy wellness.
     </p>
 
-    <button class="btn" onclick="parent.closeEventModal()">
-        Przejdź do strony i zarezerwuj!
-    </button>
+    <a href="https://www.booking.com/hotel/pl/p20-apartament.pl.html?label=gen173bo-10CAsotgFCDnAyMC1hcGFydGFtZW50SDNYA2i2AYgBAZgBM7gBGcgBD9gBA-gBAfgBAYgCAZgCBqgCAbgCvvyLyQbAAgHSAiRiZDlmZDBkOC0wYWExLTRkMmYtYTUxMS02MmJjZjE2YWJmODTYAgHgAgE&sid=9b884fadb572807532b233fe2d4e761c&dist=0&group_adults=2&group_children=0&no_rooms=1&sb_price_type=total&type=total" 
+       class="btn" target="_blank">
+       Sprawdź terminy i zarezerwuj teraz!
+    </a>
 </div>
-
-<script>
-    // Dodatkowe zabezpieczenie – jeśli z jakiegoś powodu parent.closeEventModal nie istnieje
-    document.querySelector('.btn').addEventListener('click', function(e) {
-        if (typeof parent.closeEventModal === 'function') {
-            parent.closeEventModal();
-        } else {
-            // Fallback – po prostu zamknij modal klikając w tło (jeśli jest obsługiwane)
-            const modal = parent.document.querySelector('#event-modal');
-            if (modal) modal.click();
-        }
-    });
-</script>
 
 </body>
 </html>
