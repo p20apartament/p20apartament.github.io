@@ -1,9 +1,86 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-   <url>
-      <loc>http://p20apartament.pl/</loc>
-      <lastmod>2025-09-01</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>1.0</priority>
-   </url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+    <!-- Strona główna – polska -->
+    <url>
+        <loc>https://p20apartament.pl/</loc>
+        <lastmod>2026-02-20</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+        <xhtml:link rel="alternate" hreflang="pl" href="https://p20apartament.pl/" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://p20apartament.pl/en.html" />
+        <xhtml:link rel="alternate" hreflang="de" href="https://p20apartament.pl/de.html" />
+    </url>
+
+    <!-- Strona główna – angielska -->
+    <url>
+        <loc>https://p20apartament.pl/en.html</loc>
+        <lastmod>2026-02-20</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://p20apartament.pl/en.html" />
+        <xhtml:link rel="alternate" hreflang="pl" href="https://p20apartament.pl/" />
+        <xhtml:link rel="alternate" hreflang="de" href="https://p20apartament.pl/de.html" />
+    </url>
+
+    <!-- Strona główna – niemiecka -->
+    <url>
+        <loc>https://p20apartament.pl/de.html</loc>
+        <lastmod>2026-02-20</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+        <xhtml:link rel="alternate" hreflang="de" href="https://p20apartament.pl/de.html" />
+        <xhtml:link rel="alternate" hreflang="pl" href="https://p20apartament.pl/" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://p20apartament.pl/en.html" />
+    </url>
+
+    <!-- Polityka prywatności – PL -->
+    <url>
+        <loc>https://p20apartament.pl/privacy.html</loc>
+        <lastmod>2026-02-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+
+    <!-- Privacy Policy – EN -->
+    <url>
+        <loc>https://p20apartament.pl/privacy_en.html</loc>
+        <lastmod>2026-02-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+
+    <!-- Datenschutzerklärung – DE -->
+    <url>
+        <loc>https://p20apartament.pl/privacy_de.html</loc>
+        <lastmod>2026-02-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+
+    <!-- Regulamin – PL -->
+    <url>
+        <loc>https://p20apartament.pl/regulamin.html</loc>
+        <lastmod>2026-02-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+
+    <!-- House Rules – EN -->
+    <url>
+        <loc>https://p20apartament.pl/house-rules.html</loc>
+        <lastmod>2026-02-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+
+    <!-- Hausordnung – DE -->
+    <url>
+        <loc>https://p20apartament.pl/hausordnung.html</loc>
+        <lastmod>2026-02-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+
 </urlset>
