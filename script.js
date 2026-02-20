@@ -284,4 +284,28 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     });
+    // === Floating Language Switcher ===
+const languageToggle = document.getElementById('language-toggle');
+const languageDropdown = document.getElementById('language-dropdown');
+
+if (languageToggle && languageDropdown) {
+    languageToggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        languageDropdown.classList.toggle('active');
+    });
+
+    // Zamknij dropdown po kliknięciu poza nim
+    document.addEventListener('click', (e) => {
+        if (!languageToggle.contains(e.target) && !languageDropdown.contains(e.target)) {
+            languageDropdown.classList.remove('active');
+        }
+    });
+
+    // Opcjonalnie – zamknij po Esc
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && languageDropdown.classList.contains('active')) {
+            languageDropdown.classList.remove('active');
+        }
+    });
+}
 });
