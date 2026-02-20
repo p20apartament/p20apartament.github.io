@@ -973,3 +973,99 @@ body .floating-button-container a:hover {
 .event-modal-close:hover {
     color: var(--color-accent-green);
 }
+
+/* Floating Language Switcher */
+.floating-language-container {
+    position: fixed !important;
+    bottom: 90px !important;          /* wyżej niż Facebook (który jest na 20px) */
+    right: 20px !important;
+    z-index: 9999 !important;
+}
+
+.language-toggle {
+    width: 60px;
+    height: 60px;
+    background-color: #7BBF7D;
+    border-radius: 50%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.language-toggle:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.lang-flag {
+    font-size: 32px;           /* rozmiar flagi */
+    line-height: 1;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.language-dropdown {
+    position: absolute;
+    bottom: 80px;              /* nad przyciskiem głównym */
+    right: 0;
+    background-color: none;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    list-style: none;
+    padding: 10px 0;
+    margin: 0;
+    min-width: 140px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+}
+
+.language-dropdown.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.lang-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    color: var(--color-text-dark);
+    text-decoration: none;
+    transition: background-color 0.2s;
+}
+
+.lang-item:hover {
+    background-color: var(--color-light-beige);
+}
+
+.lang-item.active {
+    background-color: var(--color-accent-green);
+    color: white;
+    font-weight: bold;
+}
+
+.lang-label {
+    margin-left: 12px;
+    font-weight: 600;
+    font-size: 1.1em;
+}
+
+/* Responsywność – na mniejszych ekranach */
+@media (max-width: 768px) {
+    .floating-language-container {
+        bottom: 80px !important;
+        right: 15px !important;
+    }
+    .language-toggle {
+        width: 50px;
+        height: 50px;
+    }
+    .lang-flag {
+        font-size: 28px;
+    }
+}
