@@ -31,6 +31,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <script>
       gtag('event', 'conversion', {'send_to': 'AW-17526194295/QJRyCJ_o1ZMbEPeAkqVB'});
     </script>
+    
+    <!-- Flag Icons CSS (darmowa biblioteka flag w formie sprite) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icons@7.2.3/css/flag-icons.min.css">
 </head> 
     
 <body>
@@ -306,7 +309,64 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
     </section>
 
-    <!-- Modal dla rezerwacji -->
+    <footer class="main-footer">
+        <div class="container">
+            <p>© 2025 P20 Apartament w Sztutowie. Wszelkie prawa zastrzeżone.</p>
+            <nav class="footer-nav">
+                <ul>
+                    <li><button class="footer-link" data-url="privacy.html">Polityka Prywatności</button></li>
+                    <li><button class="footer-link" data-url="regulamin.html">Regulamin Obiektu</button></li>
+                </ul>
+            </nav>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    
+<!-- Floating Language Switcher -->
+<div class="floating-language-container">
+    <div class="language-toggle" id="language-toggle">
+        <span class="fi fi-pl lang-flag current-flag" title="Polski"></span>
+    </div>
+    
+    <ul class="language-dropdown" id="language-dropdown">
+        <li>
+            <a href="index.html" class="lang-item active">
+                <span class="fi fi-pl lang-flag"></span>
+                <span class="lang-label">PL</span>
+            </a>
+        </li>
+        <li>
+            <a href="en.html" class="lang-item">
+                <span class="fi fi-gb lang-flag"></span>
+                <span class="lang-label">EN</span>
+            </a>
+        </li>
+        <li>
+            <a href="de.html" class="lang-item">
+                <span class="fi fi-de lang-flag"></span>
+                <span class="lang-label">DE</span>
+            </a>
+        </li>
+    </ul>
+</div>
+
+<!-- Floating Facebook button-->
+    <div class="floating-button-container">
+        <a href="https://www.facebook.com/profile.php?id=61579724782052" target="_blank" aria-label="Odwiedź nasz profil na Facebooku">
+            <i class="fab fa-facebook-f"></i>
+        </a>
+    </div>
+    
+<!-- Modal dla eventów -->
+<div class="event-modal" id="event-modal">
+    <div class="event-modal-content">
+        <span class="event-modal-close" aria-label="Zamknij modal eventu">&times;</span>
+        <iframe class="event-iframe" src="" frameborder="0" title="Informacje o evencie"></iframe>
+    </div>
+</div> 
+
+  <!-- Modal dla rezerwacji -->
     <div class="booking-modal" id="booking-modal">
         <div class="booking-modal-content">
             <span class="booking-modal-close" aria-label="Zamknij okno rezerwacji">×</span>
@@ -341,34 +401,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
         </div>
     </div>
-
-    <footer class="main-footer">
-        <div class="container">
-            <p>© 2024 P20 Apartament w Sztutowie. Wszelkie prawa zastrzeżone.</p>
-            <nav class="footer-nav">
-                <ul>
-                    <li><button class="footer-link" data-url="privacy.html">Polityka Prywatności</button></li>
-                    <li><button class="footer-link" data-url="regulamin.html">Regulamin Obiektu</button></li>
-                </ul>
-            </nav>
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
-
-<!-- Floating Facebook button-->
-    <div class="floating-button-container">
-        <a href="https://www.facebook.com/profile.php?id=61579724782052" target="_blank" aria-label="Odwiedź nasz profil na Facebooku">
-            <i class="fab fa-facebook-f"></i>
-        </a>
-    </div>
-    
-<!-- Modal dla eventów -->
-<div class="event-modal" id="event-modal">
-    <div class="event-modal-content">
-        <span class="event-modal-close" aria-label="Zamknij modal eventu">&times;</span>
-        <iframe class="event-iframe" src="" frameborder="0" title="Informacje o evencie"></iframe>
-    </div>
-</div>    
+   
 </body>
 </html>
