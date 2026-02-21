@@ -1011,7 +1011,7 @@ body .floating-button-container a:hover {
     position: absolute;
     bottom: 80px;              /* nad przyciskiem głównym */
     right: 0;
-    background-color: none;
+    background-color: beige;
     border-radius: 12px;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
     list-style: none;
